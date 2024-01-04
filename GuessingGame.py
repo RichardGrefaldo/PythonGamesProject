@@ -54,6 +54,7 @@ def show_top_5_leaderboard():
         top_5_text.insert(tk.END, f"{idx}. {entry['name']} - PHP {entry['score']} \n")
     top_5_text.config(state=tk.DISABLED)  # Make the text widget read-only
 
+#Page two of the UI
 
 def secondframe():
     name1 = regbox.get().strip()  # strip will remove leading or trailing white spaces
@@ -91,6 +92,7 @@ def secondframe():
     regbox2.place_forget()
     reglabel.destroy()
 
+    # Generate random numbers
     def bet():
         lucky = random.randint(1, 30)
         global money, rounds, umaga, gabi
