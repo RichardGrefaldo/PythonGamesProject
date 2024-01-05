@@ -16,7 +16,7 @@ menu_bar.add_cascade(label="Help", menu=help_menu)
 help_menu.add_command(label="Help", command=lambda: messagebox.showinfo("Help", "Prize = Balance - (rounds * 100).\n If your prize is negative, it means you owe me that amount; otherwise, I'll pay you"))
 help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About", "Guessing Game by Richard B. Grefaldo \n Version Vortex 20240106\n334 lines of code"))
 help_menu.add_separator()
-help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Version Rosas 20231009", "\nVortex 20240106\n -Added Blunder's Hall\n -48 lines of coded added \nRosas 20231009\n -Added bgcolor,\n -dark and light modes\n -leaderboard\n -honorifics for VIPs\n -added admin access\n -minor text change and bug fixes\n -127 lines of code added\nSorbetes 20231004\n -Added some tricks\n -28 lines of code added\nMotmot 20230929\n -Added name and age registration\n -centered text in the display box\n -text and font adjustment\n -bug fixes"))
+help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Version Vortex 20240106", "\nVortex 20240106\n -Added Blunder's Hall\n -48 lines of coded added \nRosas 20231009\n -Added bgcolor,\n -dark and light modes\n -leaderboard\n -honorifics for VIPs\n -added admin access\n -minor text change and bug fixes\n -127 lines of code added\nSorbetes 20231004\n -Added some tricks\n -28 lines of code added\nMotmot 20230929\n -Added name and age registration\n -centered text in the display box\n -text and font adjustment\n -bug fixes"))
 
 regbox = tk.Entry(root, font=('Arial', 18))
 regbox.place(x=80, y=40, height=30, width=150)
