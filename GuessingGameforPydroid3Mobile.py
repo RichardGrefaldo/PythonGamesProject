@@ -19,13 +19,13 @@ help_menu.add_separator()
 help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Version Vortex 20240106", "\nVortex 20240106\n -Added Blunder's Hall\n -48 lines of coded added \nRosas 20231009\n -Added bgcolor,\n -dark and light modes\n -leaderboard\n -honorifics for VIPs\n -added admin access\n -minor text change and bug fixes\n -127 lines of code added\nSorbetes 20231004\n -Added some tricks\n -28 lines of code added\nMotmot 20230929\n -Added name and age registration\n -centered text in the display box\n -text and font adjustment\n -bug fixes"))
 
 regbox = tk.Entry(root, font=('Arial', 18))
-regbox.place(x=80, y=40, height=30, width=150)
+regbox.place(x=150, y=200, height=120, width=650)
 regbox2 = tk.Entry(root, font=('Arial', 18))
-regbox2.place(x=80, y=100, height=30, width=150)
+regbox2.place(x=150, y=500, height=120, width=650)
 reglabel = tk.Label(root, text='Name', font=('Arial', 10))
-reglabel.place(x=80, y=10)
+reglabel.place(x=150, y=70)
 reglabel2 = tk.Label(root, text='Age', font=('Arial', 10))
-reglabel2.place(x=80, y=70)
+reglabel2.place(x=150, y=370)
 umaga = "white"
 gabi = "black"
 fcolor = "white"
@@ -83,14 +83,14 @@ def secondframe():
     age = regbox2.get().strip()
     if name1 == "Jhoebelyn":
         namelabel = tk.Label(root, bg="pink", text=f'Welcome Beybee {name1}', font=('Arial', 12))
-        namelabel.place(x=60, y=5)
+        namelabel.place(x=150, y=5)
 
     elif name1 == "Richard" and float(age) == 52918:
         namelabel = tk.Label(root, bg="pink", text=f'Welcome Boss {name1}', font=('Arial', 12))
-        namelabel.place(x=60, y=5)
+        namelabel.place(x=150, y=5)
     else:
         namelabel = tk.Label(root, bg="pink", text=f'Welcome {name1}', font=('Arial', 12))
-        namelabel.place(x=60, y=5)
+        namelabel.place(x=150, y=5)
 
     def claim_prize():
         cash_out()
@@ -212,39 +212,39 @@ def secondframe():
     if float(age) == 52918 and name1 == "Richard":
         messagebox.showinfo('Welcome Admin', 'Admin Access Granted')
         resbtn = tk.Button(root, text='Clear', command=resethall, font=('Arial', 7))
-        resbtn.place(x=250, y=165, height=40, width=40)
+        resbtn.place(x=900, y=700, height=120, width=120)
 
     box1 = tk.Text(root, font=('Arial', 18))
-    box1.place(x=20, y=170, height=30, width=90)
+    box1.place(x=20, y=700, height=120, width=560)
     box2 = tk.Text(root, font=('Arial', 18))
-    box2.place(x=20, y=230, height=30, width=90)
+    box2.place(x=20, y=920, height=120, width=560)
     box3 = tk.Text(root, font=('Arial', 18))
-    box3.place(x=20, y=290, height=30, width=90)
-    box4 = tk.Text(root, wrap=tk.WORD, font=('Arial', 30))
-    box4.place(x=70, y=60, height=70, width=160)
+    box3.place(x=20, y=1140, height=120, width=560)
+    box4 = tk.Text(root, wrap=tk.WORD, font=('Arial', 45))
+    box4.place(x=150, y=220, height=360, width=720)
     btn1 = tk.Button(root, command=bet, text='Guess', font=('Arial', 10))
-    btn1.place(x=50, y=330, height=30, width=80)
+    btn1.place(x=140, y=1340, height=150, width=350)
     btn2 = tk.Button(root, command=claim_prize, text='Claim Prize', font=('Arial', 10))
-    btn2.place(x=160, y=330, height=30, width=80)
+    btn2.place(x=540, y=1340, height=150, width=350)
     moneylabel = tk.Label(root, bg="pink", text='Balance', font=('Arial', 12))
-    moneylabel.place(x=180, y=200)
+    moneylabel.place(x=720, y=820)
     moneybox = tk.Text(root, wrap=tk.WORD, state=tk.NORMAL, font=('Arial', 18))
     moneybox.insert("1.0", str(money))
-    moneybox.place(x=180, y=230, height=30, width=100)
+    moneybox.place(x=720, y=920, height=120, width=300)
     rlabel = tk.Label(root, bg="pink", text='Rounds', font=('Arial', 12))
-    rlabel.place(x=180, y=140)
+    rlabel.place(x=720, y=600)
     round1box = tk.Text(root, font=('Arial', 18))
-    round1box.place(x=180, y=170, height=30, width=40)
+    round1box.place(x=720, y=700, height=120, width=120)
     label1 = tk.Label(root, bg="pink", text='Guess the Number 1 to 30', font=('Arial', 15))
-    label1.place(x=35, y=25)
+    label1.place(x=50, y=100)
     label2 = tk.Label(root, bg="pink", text='₱', font=('Arial', 15))
-    label2.place(x=150, y=230)
+    label2.place(x=650, y=920)
     label3 = tk.Label(root, bg="pink", text='Stake ₱25 with a chance to earn ₱200', font=('Arial', 10))
-    label3.place(x=10, y=370)
+    label3.place(x=40, y=1800)
     label4 = tk.Label(root, bg="pink", text='Enter your number below', font=('Arial', 10))
-    label4.place(x=20, y=140)
+    label4.place(x=20, y=600)
 
-    def toggle():
+    def toggle(): # Code for Background color button
         if toggle_var.get() == 1:
             toggle_label.config(text="Dark Mode")
             fcolor1 = "white"
@@ -279,12 +279,12 @@ def secondframe():
 
     toggle_var = tk.IntVar()
     toggle_button = tk.Checkbutton(root, variable=toggle_var, command=toggle)
-    toggle_button.place(x=160, y=300)
+    toggle_button.place(x=720, y=1150)
     toggle_label = tk.Label(root, text="Dark/Light Mode", bg="pink")
-    toggle_label.place(x=160, y=280)
+    toggle_label.place(x=720, y=1100)
 
 
-max_move_distance = 50
+max_move_distance = 300
 
 
 def move_button(event):  # button will move if the age value is less than 18
@@ -297,16 +297,16 @@ def move_button(event):  # button will move if the age value is less than 18
             new_y = event.y_root - root.winfo_rooty() - fbtn_height // 2 + random.randint(-max_move_distance,
                                                                                           max_move_distance)
             fbtn.place(x=new_x, y=new_y)
-            fbtn.configure(text="Adults only", font=('Arial', 12))
+            fbtn.configure(text="Adults only", font=('Arial', 10))
         else:
-            fbtn.place(x=100, y=250)
+            fbtn.place(x=350, y=1350)
             fbtn.configure(text="Register", font=('Arial', 10))
     except ValueError:# Handle the case where age_text is not a valid integer
         pass
 
 
-fbtn_width = 100
-fbtn_height = 30
+fbtn_width = 300
+fbtn_height = 150
 
 
 def on_hover(event):
