@@ -14,9 +14,9 @@ root.config(menu=menu_bar)
 help_menu = Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label="Help", menu=help_menu)
 help_menu.add_command(label="Help", command=lambda: messagebox.showinfo("Help", "Prize = Balance - (rounds * 100).\n If your prize is negative, it means you owe me that amount; otherwise, I'll pay you"))
-help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About", "Guessing Game by Richard B. Grefaldo \n Version Rosas 20231009\n286 lines of code"))
+help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About", "Guessing Game by Richard B. Grefaldo \n Version Vortex 20240106\n334 lines of code"))
 help_menu.add_separator()
-help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Version Rosas 20231009", "\nRosas 20231009\n -Added bgcolor,\n -dark and light modes\n -leaderboard\n -honorifics for VIPs\n -added admin access\n -minor text change and bug fixes\n -127 lines of code added\nSorbetes 20231004\n -Added some tricks\n -28 lines of code added\nMotmot 20230929\n -Added name and age registration\n -centered text in the display box\n -text and font adjustment\n -bug fixes"))
+help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Version Rosas 20231009", "\nVortex 20240106\n -Added Blunder's Hall\n -48 lines of coded added \nRosas 20231009\n -Added bgcolor,\n -dark and light modes\n -leaderboard\n -honorifics for VIPs\n -added admin access\n -minor text change and bug fixes\n -127 lines of code added\nSorbetes 20231004\n -Added some tricks\n -28 lines of code added\nMotmot 20230929\n -Added name and age registration\n -centered text in the display box\n -text and font adjustment\n -bug fixes"))
 
 regbox = tk.Entry(root, font=('Arial', 18))
 regbox.place(x=80, y=40, height=30, width=150)
@@ -40,6 +40,28 @@ def load_leaderboard_data():
         return []
 
 
+def load_lowerboard_data():
+    try:
+        with open("lowerboard.json", "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return []
+
+
+def show_top_5_lowerboard():
+    lowerboard_data = load_lowerboard_data()
+    top_5_window = tk.Toplevel(root)
+    top_5_window.title("Loser")
+    top_5_label = tk.Label(top_5_window, text="Top 10 Loser:")
+    top_5_label.pack()
+    top_5_text = tk.Text(top_5_window, height=10, width=30)
+    top_5_text.pack()
+
+    # Display the top 10 leaderboard data in the text widget
+    for idx, entry in enumerate(lowerboard_data[:10], start=1):
+        top_5_text.insert(tk.END, f"{idx}. {entry['name']} - PHP {entry['score']} \n")
+    top_5_text.config(state=tk.DISABLED)  # Make the text widget read-only
+
 def show_top_5_leaderboard():
     leaderboard_data = load_leaderboard_data()
     top_5_window = tk.Toplevel(root)
@@ -49,13 +71,13 @@ def show_top_5_leaderboard():
     top_5_text = tk.Text(top_5_window, height=10, width=30)
     top_5_text.pack()
 
-    # Display the top 5 leaderboard data in the text widget
+    # Display the top 10 leaderboard data in the text widget
     for idx, entry in enumerate(leaderboard_data[:10], start=1):
         top_5_text.insert(tk.END, f"{idx}. {entry['name']} - PHP {entry['score']} \n")
     top_5_text.config(state=tk.DISABLED)  # Make the text widget read-only
 
-#Page two of the UI
 
+   # Page two of the UI
 def secondframe():
     name1 = regbox.get().strip()  # strip will remove leading or trailing white spaces
     age = regbox2.get().strip()
@@ -72,7 +94,13 @@ def secondframe():
 
     def claim_prize():
         cash_out()
-        add_to_leaderboard()
+        money1 = moneybox.get("1.0", "2.0")
+        money1 = int(money1) - (rounds * 100)
+        if money1 >= 100:
+            add_to_leaderboard()
+        else:
+            add_to_lowerboard()
+
     if age == "":
         messagebox.showinfo('Warning', 'Invalid Age Value')
         root.destroy()
@@ -141,6 +169,9 @@ def secondframe():
     def save_leaderboard_data(data):
         with open("leaderboard.json", "w") as file:
             json.dump(data, file)
+    def save_lowerboard_data(data):
+        with open("lowerboard.json", "w") as file:
+            json.dump(data, file)
 
     def add_to_leaderboard():
         name = regbox.get()
@@ -157,7 +188,22 @@ def secondframe():
         regbox.delete(0, tk.END)
         regbox2.delete(0, tk.END)
 
-    def resethall():
+    def add_to_lowerboard():
+        name = regbox.get()
+        money1 = moneybox.get("1.0", "2.0")
+        money1 = int(money1) - (rounds * 100)
+        score = money1
+        lowerboard_data = load_lowerboard_data()
+        lowerboard_data.append({"name": name, "score": score})  # Add the new entry to the leaderboard
+        lowerboard_data.sort(key=lambda x: x["score"], reverse=True)   # Sort
+        lowerboard_data = lowerboard_data[:10]  # only top 10 lowest core will be registered
+        save_lowerboard_data(lowerboard_data)
+
+        # Clear the input fields
+        regbox.delete(0, tk.END)
+        regbox2.delete(0, tk.END)
+
+    def resethall():  # It will clear the leaderboard data
         leaderboard_data = load_leaderboard_data()
         leaderboard_data = leaderboard_data[:0]
         save_leaderboard_data(leaderboard_data)
@@ -241,7 +287,7 @@ def secondframe():
 max_move_distance = 50
 
 
-def move_button(event):
+def move_button(event):  # button will move if the age value is less than 18
     age_text = regbox2.get()
     try:
         age2 = int(age_text)
@@ -284,5 +330,5 @@ menu_bar2 = Menu(root)
 help_menu2 = Menu(menu_bar2, tearoff=0)
 menu_bar.add_cascade(label="Leaderboard", menu=help_menu2)
 help_menu2.add_command(label="Hall of Fame", command=show_top_5_leaderboard)
-help_menu2.add_command(label="Blunder's Hall", command=lambda: messagebox.showinfo("Biggest Loser", "Work in progress Pagisipan ko pa oke"))
+help_menu2.add_command(label="Blunder's Hall", command=show_top_5_lowerboard)
 root.mainloop()
