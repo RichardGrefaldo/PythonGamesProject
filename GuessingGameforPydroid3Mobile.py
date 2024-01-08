@@ -13,10 +13,10 @@ menu_bar = Menu(root)
 root.config(menu=menu_bar)
 help_menu = Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label="Help", menu=help_menu)
-help_menu.add_command(label="Help", command=lambda: messagebox.showinfo("Help", "Prize = Balance - (rounds * 100).\n If your prize is negative, it means you owe me that amount; otherwise, I'll pay you"))
-help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About", "Guessing Game by Richard B. Grefaldo \n Version Vortex 20240106\n334 lines of code"))
+help_menu.add_command(label="Help", command=lambda: messagebox.showinfo("Help", "Prize = Balance - (rounds * 100).\n If your prize is negative, it means you owe me that amount; otherwise, I'll pay you\n \nTo reset the leaderboard,follow these steps:\n 1.Login as 'Richard'\n 2.Enter the age as '052918'\n"))
+help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About", "Guessing Game by Richard B. Grefaldo \n Version Vortex 20240106.1\n337 lines of code"))
 help_menu.add_separator()
-help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Version Vortex 20240106", "\nVortex 20240106\n -Added Blunder's Hall\n -48 lines of coded added \nRosas 20231009\n -Added bgcolor,\n -dark and light modes\n -leaderboard\n -honorifics for VIPs\n -added admin access\n -minor text change and bug fixes\n -127 lines of code added\nSorbetes 20231004\n -Added some tricks\n -28 lines of code added\nMotmot 20230929\n -Added name and age registration\n -centered text in the display box\n -text and font adjustment\n -bug fixes"))
+help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Version Vortex 20240106.1", "\n-Vortex 20240106.1(Bug Fix))\nFixed bug: 'Hall of Blunder' data not resetting with the reset button\n -3 lines of code added\nVortex 20240106\n -Added Blunder's Hall\n -48 lines of coded added \nRosas 20231009\n -Added bgcolor,\n -dark and light modes\n -leaderboard\n -honorifics for VIPs\n -added admin access\n -minor text change and bug fixes\n -127 lines of code added\nSorbetes 20231004\n -Added some tricks\n -28 lines of code added\nMotmot 20230929\n -Added name and age registration\n -centered text in the display box\n -text and font adjustment\n -bug fixes"))
 
 regbox = tk.Entry(root, font=('Arial', 18))
 regbox.place(x=150, y=200, height=120, width=650)
@@ -207,6 +207,9 @@ def secondframe():
         leaderboard_data = load_leaderboard_data()
         leaderboard_data = leaderboard_data[:0]
         save_leaderboard_data(leaderboard_data)
+        lowerboard_data = load_lowerboard_data()
+        lowerboard_data = lowerboard_data[:0]
+        save_lowerboard_data(lowerboard_data)
         messagebox.showinfo('Warning', 'Leaderboard successfully cleared')
 
     if float(age) == 52918 and name1 == "Richard":
