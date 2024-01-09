@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 from tkinter import messagebox
 import random
 from tkinter import Menu
@@ -26,10 +27,33 @@ reglabel = tk.Label(root, text='Name', font=('Arial', 10))
 reglabel.place(x=150, y=70)
 reglabel2 = tk.Label(root, text='Age', font=('Arial', 10))
 reglabel2.place(x=150, y=370)
+modelabel = tk.Label(root, text='Game Mode')
+modelabel.place(x=150, y=670)
 umaga = "white"
 gabi = "black"
 fcolor = "white"
 bcolor = "pink"
+
+
+def on_select(event):
+    global selected_value
+    selected_value = dropdown.get()
+
+
+options = ["1 to 30: ₱200 in Winnings", "1 to 40: ₱300 in Winnings", "1 to 50: ₱400 in Winnings"]
+
+# Create a StringVar to store the selected value
+selected_option = tk.StringVar()
+
+# Create the dropdown list
+dropdown = ttk.Combobox(root, textvariable=selected_option, values=options)
+dropdown.set("Select a Game Mode")  # Set a default value
+
+# Bind the event handler to the <<ComboboxSelected>> event
+dropdown.bind("<<ComboboxSelected>>", on_select)
+
+# Place the dropdown on the window
+dropdown.place(x=80, y=700)
 
 
 def load_leaderboard_data():
@@ -61,6 +85,7 @@ def show_top_5_lowerboard():
     for idx, entry in enumerate(lowerboard_data[:10], start=1):
         top_5_text.insert(tk.END, f"{idx}. {entry['name']} - PHP {entry['score']} \n")
     top_5_text.config(state=tk.DISABLED)  # Make the text widget read-only
+
 
 def show_top_5_leaderboard():
     leaderboard_data = load_leaderboard_data()
@@ -96,7 +121,7 @@ def secondframe():
         cash_out()
         money1 = moneybox.get("1.0", "2.0")
         money1 = int(money1) - (rounds * 100)
-        if money1 >= 100:
+        if money1 >= 100: # This condition will determine whether the score belongs in the Hall of Fame or the Hall of Blunder
             add_to_leaderboard()
         else:
             add_to_lowerboard()
@@ -117,12 +142,22 @@ def secondframe():
     reglabel2.destroy()
     fbtn.destroy()
     regbox.place_forget()
-    regbox2.place_forget()
+    regbox2.place_forget() # It will hide whatever it is
     reglabel.destroy()
+    dropdown.place_forget()
+    modelabel.place_forget()
 
     # Generate random numbers
     def bet():
-        lucky = random.randint(1, 30)
+        if selected_value == '1 to 30: ₱200 in Winnings':
+            lucky = random.randint(1, 30)
+        elif selected_value == '1 to 40: ₱300 in Winnings':
+            lucky = random.randint(1, 40)
+        elif selected_value == '1 to 50: ₱400 in Winnings':
+            lucky = random.randint(1, 50)
+        else:
+            lucky = random.randint(1, 30)
+
         global money, rounds, umaga, gabi
         box4.replace("1.0", "3.0", str(lucky))
         money = money - 25
@@ -133,21 +168,66 @@ def secondframe():
         num3 = box3.get("1.0", "2.0")
         lucky = box4.get("1.0", "2.0")
 
-        if num1 == lucky:
-            messagebox.showinfo('Popup', f'You won 200PHP')
-            money = money + 200
-            moneybox.replace("1.0", "3.0", str(money))
-        elif num2 == lucky:
-            messagebox.showinfo('Popup', f'You won 200PHP')
-            money = money + 200
-            moneybox.replace("1.0", "3.0", str(money))
-        elif num3 == lucky:
-            messagebox.showinfo('Popup', f'You won 200PHP')
-            money = money + 200
-            moneybox.replace("1.0", "3.0", str(money))
+        if selected_value == '1 to 30: ₱200 in Winnings':
+            if num1 == lucky:
+                messagebox.showinfo('Popup', f'You won 200PHP')
+                money = money + 200
+                moneybox.replace("1.0", "3.0", str(money))
+            elif num2 == lucky:
+                messagebox.showinfo('Popup', f'You won 200PHP')
+                money = money + 200
+                moneybox.replace("1.0", "3.0", str(money))
+            elif num3 == lucky:
+                messagebox.showinfo('Popup', f'You won 200PHP')
+                money = money + 200
+                moneybox.replace("1.0", "3.0", str(money))
+            else:
+                messagebox.showinfo('Popup', f'You lose')
+        elif selected_value == '1 to 40: ₱300 in Winnings':
+            if num1 == lucky:
+                messagebox.showinfo('Popup', f'You won 300PHP')
+                money = money + 300
+                moneybox.replace("1.0", "3.0", str(money))
+            elif num2 == lucky:
+                messagebox.showinfo('Popup', f'You won 300PHP')
+                money = money + 300
+                moneybox.replace("1.0", "3.0", str(money))
+            elif num3 == lucky:
+                messagebox.showinfo('Popup', f'You won 300PHP')
+                money = money + 300
+                moneybox.replace("1.0", "3.0", str(money))
+            else:
+                messagebox.showinfo('Popup', f'You lose')
+        elif selected_value == '1 to 50: ₱400 in Winnings':
+            if num1 == lucky:
+                messagebox.showinfo('Popup', f'You won 400PHP')
+                money = money + 400
+                moneybox.replace("1.0", "3.0", str(money))
+            elif num2 == lucky:
+                messagebox.showinfo('Popup', f'You won 400PHP')
+                money = money + 400
+                moneybox.replace("1.0", "3.0", str(money))
+            elif num3 == lucky:
+                messagebox.showinfo('Popup', f'You won 400PHP')
+                money = money + 400
+                moneybox.replace("1.0", "3.0", str(money))
+            else:
+                messagebox.showinfo('Popup', f'You lose')
         else:
-            messagebox.showinfo('Popup', f'You lose')
-
+            if num1 == lucky:
+                messagebox.showinfo('Popup', f'You won 200PHP')
+                money = money + 200
+                moneybox.replace("1.0", "3.0", str(money))
+            elif num2 == lucky:
+                messagebox.showinfo('Popup', f'You won 200PHP')
+                money = money + 200
+                moneybox.replace("1.0", "3.0", str(money))
+            elif num3 == lucky:
+                messagebox.showinfo('Popup', f'You won 200PHP')
+                money = money + 200
+                moneybox.replace("1.0", "3.0", str(money))
+            else:
+                messagebox.showinfo('Popup', f'You lose')
         if money <= 0:
             messagebox.showinfo('Popup', 'WALA KA NG PERA')
             answer = messagebox.askquestion('Message', 'do you want to play again?')
@@ -238,12 +318,34 @@ def secondframe():
     rlabel.place(x=720, y=600)
     round1box = tk.Text(root, font=('Arial', 18))
     round1box.place(x=720, y=700, height=120, width=120)
-    label1 = tk.Label(root, bg="pink", text='Guess the Number 1 to 30', font=('Arial', 15))
-    label1.place(x=50, y=100)
+    if selected_value == '1 to 30: ₱200 in Winnings':
+        label1 = tk.Label(root, bg="pink", text='Guess the Number 1 to 30', font=('Arial', 15))
+        label1.place(x=50, y=100)
+    elif selected_value == '1 to 40: ₱300 in Winnings':
+        label1 = tk.Label(root, bg="pink", text='Guess the Number 1 to 40', font=('Arial', 15))
+        label1.place(x=50, y=100)
+    elif selected_value == '1 to 50: ₱400 in Winnings':
+        label1 = tk.Label(root, bg="pink", text='Guess the Number 1 to 50', font=('Arial', 15))
+        label1.place(x=50, y=100)
+    else:
+        label1 = tk.Label(root, bg="pink", text='Guess the Number 1 to 30', font=('Arial', 15))
+        label1.place(x=50, y=100)
+
     label2 = tk.Label(root, bg="pink", text='₱', font=('Arial', 15))
     label2.place(x=650, y=920)
-    label3 = tk.Label(root, bg="pink", text='Stake ₱25 with a chance to earn ₱200', font=('Arial', 10))
-    label3.place(x=40, y=1800)
+    if selected_value == '1 to 30: ₱200 in Winnings':
+        label3 = tk.Label(root, bg="pink", text='Stake ₱25 with a chance to earn ₱200', font=('Arial', 10))
+        label3.place(x=40, y=1800)
+    elif selected_value == '1 to 40: ₱300 in Winnings':
+        label3 = tk.Label(root, bg="pink", text='Stake ₱25 with a chance to earn ₱300', font=('Arial', 10))
+        label3.place(x=40, y=1800)
+    elif selected_value == '1 to 50: ₱400 in Winnings':
+        label3 = tk.Label(root, bg="pink", text='Stake ₱25 with a chance to earn ₱400', font=('Arial', 10))
+        label3.place(x=40, y=1800)
+    else:
+        label3 = tk.Label(root, bg="pink", text='Stake ₱25 with a chance to earn ₱200', font=('Arial', 10))
+        label3.place(x=40, y=1800)
+
     label4 = tk.Label(root, bg="pink", text='Enter your number below', font=('Arial', 10))
     label4.place(x=20, y=600)
 
@@ -300,10 +402,10 @@ def move_button(event):  # button will move if the age value is less than 18
             new_y = event.y_root - root.winfo_rooty() - fbtn_height // 2 + random.randint(-max_move_distance,
                                                                                           max_move_distance)
             fbtn.place(x=new_x, y=new_y)
-            fbtn.configure(text="Adults only", font=('Arial', 10))
+            fbtn.configure(text="Adults only")
         else:
             fbtn.place(x=350, y=1350)
-            fbtn.configure(text="Register", font=('Arial', 10))
+            fbtn.configure(text="Register")
     except ValueError:# Handle the case where age_text is not a valid integer
         pass
 
@@ -325,8 +427,8 @@ def on_leave(event):
 # Bind the <FocusOut> event to the move_button function
 regbox2.bind('<FocusOut>', move_button)
 # Bind the <Enter> and <Leave> events for the button
-fbtn = tk.Button(root, command=secondframe, text='Register', font=('Arial', 10))
-fbtn.place(x=100, y=250, width=fbtn_width, height=fbtn_height)
+fbtn = ttk.Button(root, command=secondframe, text='Register')
+fbtn.place(x=350, y=1350, width=fbtn_width, height=fbtn_height)
 fbtn.bind('<Enter>', on_hover)
 fbtn.bind('<Leave>', on_leave)
 menu_bar2 = Menu(root)
