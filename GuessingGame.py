@@ -15,9 +15,9 @@ root.config(menu=menu_bar)
 help_menu = Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label="Help", menu=help_menu)
 help_menu.add_command(label="Help", command=lambda: messagebox.showinfo("Help", "Prize = Balance - (rounds * 100).\n If your prize is negative, it means you owe me that amount; otherwise, I'll pay you\n \nTo reset the leaderboard,follow these steps:\n 1.Login as 'Richard'\n 2.Enter the age as '052918'\n"))
-help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About", "Guessing Game by Richard B. Grefaldo \n Version ModeForge 20240110\n 443 lines of code"))
+help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About", "Guessing Game by Richard B. Grefaldo \n Version ModeForge 20240110.1\n 437 lines of code"))
 help_menu.add_separator()
-help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Version ModeForge 20240110", "\nVersion ModeForge 20240110\n -New feature added 'Game Modes'\n -106 lines of code added\nVortex 20240106.1(Bug Fix)\nFixed bug: 'Hall of Blunder' data not resetting with the reset button\n-3 lines of code added\nVortex 20240106\n -Added Blunder's Hall\n -48 lines of coded added \nRosas 20231009\n -Added bgcolor,\n -dark and light modes\n -leaderboard\n -honorifics for VIPs\n -added admin access\n -minor text change and bug fixes\n -127 lines of code added\nSorbetes 20231004\n -Added some tricks(Register button will reposition away from the mouse cursor if age is under 18)\n -28 lines of code added\nMotmot 20230929\n -Added name and age registration\n -centered text in the display box\n -text and font adjustment\n -bug fixes"))
+help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Version ModeForge 20240110.1", "\nVersion ModeForge 20240110.1(Bug Fix)\n -Bug Fix: Resolved issue causing an error when a player proceeds without selecting a game mode.\n -Added 1 line of code\nVersion ModeForge 20240110\n -New feature added 'Game Modes'\n -99 lines of code added\nVortex 20240106.1(Bug Fix)\n -Fixed bug: 'Hall of Blunder' data not resetting with the reset button\n- 3 lines of code added\nVortex 20240106\n -Added Blunder's Hall\n -48 lines of coded added \nRosas 20231009\n -Added bgcolor,\n -dark and light modes\n -leaderboard\n -honorifics for VIPs\n -added admin access\n -minor text change and bug fixes\n -127 lines of code added\nSorbetes 20231004\n -Added some tricks(Register button will reposition away from the mouse cursor if age is under 18)\n -28 lines of code added\nMotmot 20230929\n -Added name and age registration\n -centered text in the display box\n -text and font adjustment\n -bug fixes"))
 
 regbox = tk.Entry(root, font=('Arial', 18))
 regbox.place(x=80, y=40, height=30, width=150)
@@ -41,19 +41,15 @@ def on_select(event):
 
 
 options = ["1 to 30: ₱200 in Winnings", "1 to 40: ₱300 in Winnings", "1 to 50: ₱400 in Winnings"]
-
 # Create a StringVar to store the selected value
 selected_option = tk.StringVar()
-
 # Create the dropdown list
 dropdown = ttk.Combobox(root, textvariable=selected_option, values=options)
 dropdown.set("Select a Game Mode")  # Set a default value
-
 # Bind the event handler to the <<ComboboxSelected>> event
 dropdown.bind("<<ComboboxSelected>>", on_select)
-
 # Place the dropdown on the window
-dropdown.place(x=80, y=150)
+dropdown.place(x=80, y=150, height=30, width=150)
 
 
 def load_leaderboard_data():
@@ -75,8 +71,8 @@ def load_lowerboard_data():
 def show_top_5_lowerboard():
     lowerboard_data = load_lowerboard_data()
     top_5_window = tk.Toplevel(root)
-    top_5_window.title("Loser")
-    top_5_label = tk.Label(top_5_window, text="Top 10 Loser:")
+    top_5_window.title("Best of the Worst")
+    top_5_label = tk.Label(top_5_window, text="Top 10 Losers:")
     top_5_label.pack()
     top_5_text = tk.Text(top_5_window, height=10, width=30)
     top_5_text.pack()
@@ -106,6 +102,7 @@ def show_top_5_leaderboard():
 def secondframe():
     name1 = regbox.get().strip()  # strip will remove leading or trailing white spaces
     age = regbox2.get().strip()
+    selected_value = dropdown.get() # it fixed the bug that prevent else block from accessing the selected value
     if name1 == "Jhoebelyn":
         namelabel = tk.Label(root, bg="pink", text=f'Welcome Beybee {name1}', font=('Arial', 12))
         namelabel.place(x=60, y=5)
@@ -151,14 +148,12 @@ def secondframe():
     def bet():
         if selected_value == '1 to 30: ₱200 in Winnings':
             lucky = random.randint(1, 30)
-
         elif selected_value == '1 to 40: ₱300 in Winnings':
             lucky = random.randint(1, 40)
         elif selected_value == '1 to 50: ₱400 in Winnings':
             lucky = random.randint(1, 50)
         else:
             lucky = random.randint(1, 30)
-
 
         global money, rounds, umaga, gabi
         box4.replace("1.0", "3.0", str(lucky))
@@ -169,6 +164,7 @@ def secondframe():
         num2 = box2.get("1.0", "2.0")
         num3 = box3.get("1.0", "2.0")
         lucky = box4.get("1.0", "2.0")
+
         if selected_value == '1 to 30: ₱200 in Winnings':
             if num1 == lucky:
                 messagebox.showinfo('Popup', f'You won 200PHP')
@@ -229,7 +225,6 @@ def secondframe():
                 moneybox.replace("1.0", "3.0", str(money))
             else:
                 messagebox.showinfo('Popup', f'You lose')
-
         if money <= 0:
             messagebox.showinfo('Popup', 'WALA KA NG PERA')
             answer = messagebox.askquestion('Message', 'do you want to play again?')
@@ -251,6 +246,7 @@ def secondframe():
     def save_leaderboard_data(data):
         with open("leaderboard.json", "w") as file:
             json.dump(data, file)
+
     def save_lowerboard_data(data):
         with open("lowerboard.json", "w") as file:
             json.dump(data, file)
@@ -321,7 +317,6 @@ def secondframe():
     round1box = tk.Text(root, font=('Arial', 18))
     round1box.place(x=180, y=170, height=30, width=40)
     if selected_value == '1 to 30: ₱200 in Winnings':
-        print('hoho')
         label1 = tk.Label(root, bg="pink", text='Guess the Number 1 to 30', font=('Arial', 15))
         label1.place(x=35, y=25)
     elif selected_value =='1 to 40: ₱300 in Winnings':
@@ -409,7 +404,7 @@ def move_button(event):  # button will move if the age value is less than 18
         else:
             fbtn.place(x=100, y=250)
             fbtn.configure(text="Register")
-    except ValueError:# Handle the case where age_text is not a valid integer
+    except ValueError: # Handle the case where age_text is not a valid integer
         pass
 
 
@@ -430,7 +425,6 @@ def on_leave(event):
 # Bind the <FocusOut> event to the move_button function
 regbox2.bind('<FocusOut>', move_button)
 # Bind the <Enter> and <Leave> events for the button
-
 fbtn = ttk.Button(root, command=secondframe, text='Register')
 fbtn.place(x=100, y=250, width=fbtn_width, height=fbtn_height)
 fbtn.bind('<Enter>', on_hover)
