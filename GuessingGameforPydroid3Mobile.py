@@ -53,7 +53,7 @@ dropdown.set("Select a Game Mode")  # Set a default value
 dropdown.bind("<<ComboboxSelected>>", on_select)
 
 # Place the dropdown on the window
-dropdown.place(x=150, y=750)
+dropdown.place(x=150, y=750,height=120, width=650)
 
 
 def load_leaderboard_data():
