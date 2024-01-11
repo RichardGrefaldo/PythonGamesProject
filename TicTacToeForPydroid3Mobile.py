@@ -68,10 +68,10 @@ def paint(symb):
     elif symb == 9:
         if data == 1:
             c3 = tk.Button(root,  text="X")
-            c3.place(x=600, y=800, height=80, width=80)
+            c3.place(x=600, y=800, height=250, width=250)
         else:
             c3 = tk.Button(root, text="O")
-            c3.place(x=600, y=800, height=80, width=80)
+            c3.place(x=600, y=800, height=250, width=250)
 
 
 a1 = tk.Button(root, command=lambda: paint(1), text="")
