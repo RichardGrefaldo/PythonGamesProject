@@ -1,0 +1,26 @@
+import tkinter as tk
+root = tk.Tk()
+root.geometry('300x400')
+root.title('TicTacToe')
+
+
+a1 = tk.Button(root, text="")
+a1.place(x=30, y=50, height=80, width=80)
+a2 = tk.Button(root, text="")
+a2.place(x=30, y=130, height=80, width=80)
+a3 = tk.Button(root, text="")
+a3.place(x=30, y=210, height=80, width=80)
+b1 = tk.Button(root, text="")
+b1.place(x=110, y=50, height=80, width=80)
+b2 = tk.Button(root,  text="")
+b2.place(x=110, y=130, height=80, width=80)
+b3 = tk.Button(root, text="")
+b3.place(x=110, y=210, height=80, width=80)
+c1 = tk.Button(root, text="")
+c1.place(x=190, y=50, height=80, width=80)
+c2 = tk.Button(root, text="")
+c2.place(x=190, y=130, height=80, width=80)
+c3 = tk.Button(root, text="")
+c3.place(x=190, y=210, height=80, width=80)
+
+root.mainloop()
