@@ -3,7 +3,6 @@ root = tk.Tk()
 root.geometry('300x400')
 root.title('TicTacToe')
 
-
 a1 = tk.Button(root, text="")
 a1.place(x=30, y=50, height=80, width=80)
 a2 = tk.Button(root, text="")
