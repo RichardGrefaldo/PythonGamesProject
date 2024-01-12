@@ -58,7 +58,6 @@ def paint(symb):
         else:
             a2 = tk.Button(root, text="O")
             a2.place(x=30, y=130, height=80, width=80)
-            player2 = player2 + 1
             AA2 = 'O'
             if AA1 == 'O' and AA3 == 'O':
                 winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
