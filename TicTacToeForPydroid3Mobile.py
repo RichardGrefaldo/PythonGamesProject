@@ -45,21 +45,21 @@ def newgame(): # Start/New game Button function
                 AA1 = 'X'
                 if AA2 == 'X' and AA3 == 'X': #winning condition
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1 # Counter for wins
                     a1.config(bg="gold")
                     a2.config(bg="gold")
                     a3.config(bg="gold")
                 elif BB1 == 'X' and CC1 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a1.config(bg="gold")
                     b1.config(bg="gold")
                     c1.config(bg="gold")
                 elif BB2 == 'X' and CC3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a1.config(bg="gold")
                     b2.config(bg="gold")
@@ -70,21 +70,21 @@ def newgame(): # Start/New game Button function
                 AA1 = 'O'
                 if AA2 == 'O' and AA3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a1.config(bg="gold")
                     a2.config(bg="gold")
                     a3.config(bg="gold")
                 elif BB1 == 'O' and CC1 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a1.config(bg="gold")
                     b1.config(bg="gold")
                     c1.config(bg="gold")
                 elif BB2 == 'O' and CC3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a1.config(bg="gold")
                     b2.config(bg="gold")
@@ -96,14 +96,14 @@ def newgame(): # Start/New game Button function
                 AA2 = 'X'
                 if AA1 == 'X' and AA3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a1.config(bg="gold")
                     a2.config(bg="gold")
                     a3.config(bg="gold")
                 elif BB2 == 'X' and CC2 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a2.config(bg="gold")
                     b2.config(bg="gold")
@@ -114,14 +114,14 @@ def newgame(): # Start/New game Button function
                 AA2 = 'O'
                 if AA1 == 'O' and AA3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a1.config(bg="gold")
                     a2.config(bg="gold")
                     a3.config(bg="gold")
                 elif BB2 == 'O' and CC2 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a2.config(bg="gold")
                     b2.config(bg="gold")
@@ -133,21 +133,21 @@ def newgame(): # Start/New game Button function
                 AA3 = 'X'
                 if AA1 == 'X' and AA2 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a1.config(bg="gold")
                     a2.config(bg="gold")
                     a3.config(bg="gold")
                 elif BB3 == 'X' and CC3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a3.config(bg="gold")
                     b3.config(bg="gold")
                     c3.config(bg="gold")
                 elif BB2 == 'X' and CC1 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a3.config(bg="gold")
                     b2.config(bg="gold")
@@ -158,21 +158,21 @@ def newgame(): # Start/New game Button function
                 AA3 = 'O'
                 if AA1 == 'O' and AA2 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a1.config(bg="gold")
                     a2.config(bg="gold")
                     a3.config(bg="gold")
                 elif BB3 == 'O' and CC3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a3.config(bg="gold")
                     b3.config(bg="gold")
                     c3.config(bg="gold")
                 elif BB2 == 'O' and CC1 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a3.config(bg="gold")
                     b2.config(bg="gold")
@@ -184,14 +184,14 @@ def newgame(): # Start/New game Button function
                 BB1 = 'X'
                 if AA1 == 'X' and CC1 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a1.config(bg="gold")
                     b1.config(bg="gold")
                     c1.config(bg="gold")
                 elif BB2 == 'X' and BB3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     b1.config(bg="gold")
                     b2.config(bg="gold")
@@ -202,14 +202,14 @@ def newgame(): # Start/New game Button function
                 BB1 = 'O'
                 if AA1 == 'O' and CC1 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a1.config(bg="gold")
                     b1.config(bg="gold")
                     c1.config(bg="gold")
                 elif BB2 == 'O' and BB3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     b1.config(bg="gold")
                     b2.config(bg="gold")
@@ -221,28 +221,28 @@ def newgame(): # Start/New game Button function
                 BB2 = 'X'
                 if AA1 == 'X' and CC3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a1.config(bg="gold")
                     b2.config(bg="gold")
                     c3.config(bg="gold")
                 elif AA2 == 'X' and CC2 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a2.config(bg="gold")
                     b2.config(bg="gold")
                     c2.config(bg="gold")
                 elif AA3 == 'X' and CC1 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a3.config(bg="gold")
                     b2.config(bg="gold")
                     c1.config(bg="gold")
                 elif BB1 == 'X' and BB3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     b1.config(bg="gold")
                     b2.config(bg="gold")
@@ -253,28 +253,28 @@ def newgame(): # Start/New game Button function
                 BB2 = 'O'
                 if AA1 == 'O' and CC3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a1.config(bg="gold")
                     b2.config(bg="gold")
                     c3.config(bg="gold")
                 elif AA2 == 'O' and CC2 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a2.config(bg="gold")
                     b2.config(bg="gold")
                     c2.config(bg="gold")
                 elif AA3 == 'O' and CC1 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a3.config(bg="gold")
                     b2.config(bg="gold")
                     c1.config(bg="gold")
                 elif BB1 == 'O' and BB3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     b1.config(bg="gold")
                     b2.config(bg="gold")
@@ -286,14 +286,14 @@ def newgame(): # Start/New game Button function
                 BB3 = 'X'
                 if AA3 == 'X' and CC3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a3.config(bg="gold")
                     b3.config(bg="gold")
                     c3.config(bg="gold")
                 elif BB1 == 'X' and BB2 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     b1.config(bg="gold")
                     b2.config(bg="gold")
@@ -304,14 +304,14 @@ def newgame(): # Start/New game Button function
                 BB3 = 'O'
                 if AA3 == 'O' and CC3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a3.config(bg="gold")
                     b3.config(bg="gold")
                     c3.config(bg="gold")
                 elif BB1 == 'O' and BB2 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     b1.config(bg="gold")
                     b2.config(bg="gold")
@@ -323,21 +323,21 @@ def newgame(): # Start/New game Button function
                 CC1 = 'X'
                 if AA1 == 'X' and BB1 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a1.config(bg="gold")
                     b1.config(bg="gold")
                     c1.config(bg="gold")
                 elif BB2 == 'X' and AA3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a3.config(bg="gold")
                     b2.config(bg="gold")
                     c1.config(bg="gold")
                 elif CC2 == 'X' and CC3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     c1.config(bg="gold")
                     c2.config(bg="gold")
@@ -348,21 +348,21 @@ def newgame(): # Start/New game Button function
                 CC1 = 'O'
                 if AA1 == 'O' and BB1 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a1.config(bg="gold")
                     b1.config(bg="gold")
                     c1.config(bg="gold")
                 elif BB2 == 'O' and AA3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a3.config(bg="gold")
                     b2.config(bg="gold")
                     c1.config(bg="gold")
                 elif CC2 == 'O' and CC3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     c1.config(bg="gold")
                     c2.config(bg="gold")
@@ -374,14 +374,14 @@ def newgame(): # Start/New game Button function
                 CC2 = 'X'
                 if CC1 == 'X' and CC3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     c1.config(bg="gold")
                     c2.config(bg="gold")
                     c3.config(bg="gold")
                 elif AA2 == 'X' and BB2 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a2.config(bg="gold")
                     b2.config(bg="gold")
@@ -392,14 +392,14 @@ def newgame(): # Start/New game Button function
                 CC2 = 'O'
                 if CC1 == 'O' and CC3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     c1.config(bg="gold")
                     c2.config(bg="gold")
                     c3.config(bg="gold")
                 elif AA2 == 'O' and BB2 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a2.config(bg="gold")
                     b2.config(bg="gold")
@@ -411,21 +411,21 @@ def newgame(): # Start/New game Button function
                 CC3 = 'X'
                 if CC1 == 'X' and CC2 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     c1.config(bg="gold")
                     c2.config(bg="gold")
                     c3.config(bg="gold")
                 elif AA1 == 'X' and BB2 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a1.config(bg="gold")
                     b2.config(bg="gold")
                     c3.config(bg="gold")
                 elif AA3 == 'X' and BB3 == 'X':
                     winner = tk.Label(root, text="Player X wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     xcheck = 1
                     a3.config(bg="gold")
                     b3.config(bg="gold")
@@ -436,21 +436,21 @@ def newgame(): # Start/New game Button function
                 CC3 = 'O'
                 if CC1 == 'O' and CC2 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     c1.config(bg="gold")
                     c2.config(bg="gold")
                     c3.config(bg="gold")
                 elif AA1 == 'O' and BB2 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a1.config(bg="gold")
                     b2.config(bg="gold")
                     c3.config(bg="gold")
                 elif AA3 == 'O' and BB3 == 'O':
                     winner = tk.Label(root, text="Player O wins", font=('Arial', 20))
-                    winner.place(x=20, y=1200)
+                    winner.place(x=20, y=1250)
                     ocheck = 1
                     a3.config(bg="gold")
                     b3.config(bg="gold")
@@ -477,7 +477,7 @@ def newgame(): # Start/New game Button function
 
 
 newgamebt = ttk.Button(root,command=newgame, text="Start Game") # button for new/start game
-newgamebt.place(x=700,y=900, height=50, width=150)
+newgamebt.place(x=780,y=1100, height=140, width=250)
 
 def backgroundcolor(event):
     global selected_value
@@ -508,5 +508,5 @@ dropdown.set("Select a Color")  # Set a default value
 # Bind the event handler to the <<ComboboxSelected>> event
 dropdown.bind("<<ComboboxSelected>>", backgroundcolor)
 # Place the dropdown on the window
-dropdown.place(x=700, y=1000, height=50, width=100)
+dropdown.place(x=730, y=1250, height=140, width=310)
 root.mainloop()
