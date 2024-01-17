@@ -310,7 +310,7 @@ def paint(symb):
         else:
             c2.config(bg="lightgray")
     elif symb == 13:
-        if CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 ==0:
+        if CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and DD2 == 0 and DD3 == 0 and DD4 ==0:
             b2.config(bg="lightgray")
             b3.config(bg="lightgray")
             b4.config(bg="lightgray")
@@ -320,21 +320,21 @@ def paint(symb):
             d2.config(bg="lightgray")
             d3.config(bg="lightgray")
             d4.config(bg="lightgray")
-        elif CC3 == 0 and CC2 == "X" and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0:
+        elif CC3 == 0 and CC2 == "X" and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and DD2 == 0 and DD3 == 0 and DD4 ==0:
             c3.config(bg="lightgray")
-        elif CC3 == 0 and CC2 == 0 and CC4 == "X" and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0:
+        elif CC3 == 0 and CC2 == 0 and CC4 == "X" and BB2 == 0 and BB3 == 0 and BB4 == 0 and DD2 == 0 and DD3 == 0 and DD4 ==0:
             c3.config(bg="lightgray")
-        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == "X" and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0:
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == "X" and BB3 == 0 and BB4 == 0 and DD2 == 0 and DD3 == 0 and DD4 ==0:
             c3.config(bg="lightgray")
-        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == "X" and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0:
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == "X" and BB4 == 0 and DD2 == 0 and DD3 == 0 and DD4 ==0:
             c3.config(bg="lightgray")
-        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == "X" and CC2 == 0 and CC3 == 0 and CC4 == 0:
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == "X" and DD2 == 0 and DD3 == 0 and DD4 ==0:
             c3.config(bg="lightgray")
-        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == "X" and CC3 == 0 and CC4 == 0:
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and DD2 == "X" and DD3 == 0 and DD4 ==0:
             c3.config(bg="lightgray")
-        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == "X" and CC4 == 0:
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and DD2 == 0 and DD3 == "X" and DD4 ==0:
             c3.config(bg="lightgray")
-        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == "X":
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and DD2 == 0 and DD3 == 0 and DD4 =="X":
             c3.config(bg="lightgray")
         elif CC3 == "X":
             c3.config(bg="red", text="X")
