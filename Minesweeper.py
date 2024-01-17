@@ -17,7 +17,6 @@ title = tk.Label(root,text ="MineSweeper",font=('Arial',20))
 title.place(x=70, y=20)
 title2 = tk.Label(root,text ="by Richard",font=('Arial',12))
 title2.place(x=110, y=55)
-
 def paint(symb):
     if symb == 1:
         if AA1 == 0 and AA2 == 0 and BB1 == 0 and BB2 == 0:
@@ -32,7 +31,7 @@ def paint(symb):
         elif AA1 == 0 and AA2 == 0 and BB1 == 0 and BB2 == "X":
             a1.config(bg="lightgray")
         elif AA1 == "X":
-            a1.config(bg="red")
+            a1.config(bg="red", text="X")
             winsound.Beep(250, 300)
         else:
             a1.config(bg="lightgray")
@@ -58,7 +57,6 @@ def paint(symb):
         elif AA2 == "X":
             a2.config(bg="red", text="X")
             winsound.Beep(250, 300)
-            print('Game Over')
         else:
             a2.config(bg="lightgray")
 
@@ -83,7 +81,6 @@ def paint(symb):
         elif AA3 == "X":
             a3.config(bg="red", text="X")
             winsound.Beep(250, 300)
-            print('Game Over')
         else:
             a3.config(bg="lightgray")
     elif symb == 4:
@@ -107,7 +104,6 @@ def paint(symb):
         elif AA4 == "X":
             a4.config(bg="red", text="X")
             winsound.Beep(250, 300)
-            print('Game Over')
         else:
             a4.config(bg="lightgray")
     elif symb == 5:
@@ -249,108 +245,419 @@ def paint(symb):
         else:
             b4.config(bg="lightgray")
     elif symb == 10:
-        if BB5 == 0:
+        if BB5 == 0 and BB4 == 0 and AA4 == 0 and AA5 == 0 and CC4 == 0 and CC5 == 0:
+            b4.config(bg="lightgray")
             b5.config(bg="lightgray")
-        else:
+            a4.config(bg="lightgray")
+            a5.config(bg="lightgray")
+            c4.config(bg="lightgray")
+            c5.config(bg="lightgray")
+        elif BB5 == 0 and BB4 == "X" and AA4 == 0 and AA5 == 0 and CC4 == 0 and CC5 == 0:
+            b5.config(bg="lightgray")
+        elif BB5 == 0 and BB4 == 0 and AA4 == "X" and AA5 == 0 and CC4 == 0 and CC5 == 0:
+            b5.config(bg="lightgray")
+        elif BB5 == 0 and BB4 == 0 and AA4 == 0 and AA5 == "X" and CC4 == 0 and CC5 == 0:
+            b5.config(bg="lightgray")
+        elif BB5 == 0 and BB4 == 0 and AA4 == 0 and AA5 == 0 and CC4 == "X" and CC5 == 0:
+            b5.config(bg="lightgray")
+        elif BB5 == 0 and BB4 == 0 and AA4 == 0 and AA5 == 0 and CC4 == 0 and CC5 == "X":
+            b5.config(bg="lightgray")
+        elif BB5 == "X":
             b5.config(bg="red", text="X")
             winsound.Beep(250, 300)
-            print('Game Over')
-    elif symb == 11:
-        if CC1 == 0:
-            c1.config(bg="lightgray")
         else:
+            b5.config(bg="lightgray")
+    elif symb == 11:
+        if CC1 == 0 and BB1 == 0 and BB2 == 0 and CC2 == 0 and DD1 == 0 and DD2 == 0:
+            b1.config(bg="lightgray")
+            b2.config(bg="lightgray")
+            c1.config(bg="lightgray")
+            c2.config(bg="lightgray")
+            d1.config(bg="lightgray")
+            d2.config(bg="lightgray")
+        elif CC1 == 0 and BB1 == "X" and BB2 == 0 and CC2 == 0 and DD1 == 0 and DD2 == 0:
+            c1.config(bg="lightgray")
+        elif CC1 == 0 and BB1 == 0 and BB2 == "X" and CC2 == 0 and DD1 == 0 and DD2 == 0:
+            c1.config(bg="lightgray")
+        elif CC1 == 0 and BB1 == 0 and BB2 == 0 and CC2 == "X" and DD1 == 0 and DD2 == 0:
+            c1.config(bg="lightgray")
+        elif CC1 == 0 and BB1 == 0 and BB2 == 0 and CC2 == 0 and DD1 == "X" and DD2 == 0:
+            c1.config(bg="lightgray")
+        elif CC1 == 0 and BB1 == 0 and BB2 == 0 and CC2 == 0 and DD1 == 0 and DD2 == "X":
+            c1.config(bg="lightgray")
+        elif CC1 == "X":
             c1.config(bg="red", text="X")
             winsound.Beep(250, 300)
-            print('Game Over')
-    elif symb == 12:
-        if CC2 == 0:
-            c2.config(bg="lightgray")
         else:
+            c1.config(bg="lightgray")
+    elif symb == 12:
+        if CC2 == 0 and CC1 == 0 and CC3 == 0 and BB1 == 0 and BB2 == 0 and BB3 == 0 and DD1 == 0 and DD2 == 0 and DD3 == 0:
+            c1.config(bg="lightgray")
+            c2.config(bg="lightgray")
+            c3.config(bg="lightgray")
+            b1.config(bg="lightgray")
+            b2.config(bg="lightgray")
+            b3.config(bg="lightgray")
+            d1.config(bg="lightgray")
+            d2.config(bg="lightgray")
+            d3.config(bg="lightgray")
+        elif CC2 == 0 and CC1 == "X" and CC3 == 0 and BB1 == 0 and BB2 == 0 and BB3 == 0 and DD1 == 0 and DD2 == 0 and DD3 == 0:
+            c2.config(bg="lightgray")
+        elif CC2 == 0 and CC1 == 0 and CC3 == "X" and BB1 == 0 and BB2 == 0 and BB3 == 0 and DD1 == 0 and DD2 == 0 and DD3 == 0:
+            c2.config(bg="lightgray")
+        elif CC2 == 0 and CC1 == 0 and CC3 == 0 and BB1 == "X" and BB2 == 0 and BB3 == 0 and DD1 == 0 and DD2 == 0 and DD3 == 0:
+            c2.config(bg="lightgray")
+        elif CC2 == 0 and CC1 == 0 and CC3 == 0 and BB1 == 0 and BB2 == "X" and BB3 == 0 and DD1 == 0 and DD2 == 0 and DD3 == 0:
+            c2.config(bg="lightgray")
+        elif CC2 == 0 and CC1 == 0 and CC3 == 0 and BB1 == 0 and BB2 == 0 and BB3 == "X" and DD1 == 0 and DD2 == 0 and DD3 == 0:
+            c2.config(bg="lightgray")
+        elif CC2 == 0 and CC1 == 0 and CC3 == 0 and BB1 == 0 and BB2 == 0 and BB3 == 0 and DD1 == "X" and DD2 == 0 and DD3 == 0:
+            c2.config(bg="lightgray")
+        elif CC2 == 0 and CC1 == "X" and CC3 == 0 and BB1 == 0 and BB2 == 0 and BB3 == 0 and DD1 == 0 and DD2 == "X" and DD3 == 0:
+            c2.config(bg="lightgray")
+        elif CC2 == 0 and CC1 == "X" and CC3 == 0 and BB1 == 0 and BB2 == 0 and BB3 == 0 and DD1 == 0 and DD2 == 0 and DD3 == "X":
+            c2.config(bg="lightgray")
+        elif CC2 == "X":
             c2.config(bg="red", text="X")
             winsound.Beep(250, 300)
-            print('Game Over')
-    elif symb == 13:
-        if CC3 == 0:
-            c3.config(bg="lightgray")
         else:
+            c2.config(bg="lightgray")
+    elif symb == 13:
+        if CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 ==0:
+            b2.config(bg="lightgray")
+            b3.config(bg="lightgray")
+            b4.config(bg="lightgray")
+            c2.config(bg="lightgray")
+            c3.config(bg="lightgray")
+            c4.config(bg="lightgray")
+            d2.config(bg="lightgray")
+            d3.config(bg="lightgray")
+            d4.config(bg="lightgray")
+        elif CC3 == 0 and CC2 == "X" and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0:
+            c3.config(bg="lightgray")
+        elif CC3 == 0 and CC2 == 0 and CC4 == "X" and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0:
+            c3.config(bg="lightgray")
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == "X" and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0:
+            c3.config(bg="lightgray")
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == "X" and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0:
+            c3.config(bg="lightgray")
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == "X" and CC2 == 0 and CC3 == 0 and CC4 == 0:
+            c3.config(bg="lightgray")
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == "X" and CC3 == 0 and CC4 == 0:
+            c3.config(bg="lightgray")
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == "X" and CC4 == 0:
+            c3.config(bg="lightgray")
+        elif CC3 == 0 and CC2 == 0 and CC4 == 0 and BB2 == 0 and BB3 == 0 and BB4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == "X":
+            c3.config(bg="lightgray")
+        elif CC3 == "X":
             c3.config(bg="red", text="X")
             winsound.Beep(250, 300)
-            print('Game Over')
-    elif symb == 14:
-        if CC4 == 0:
-            c4.config(bg="lightgray")
         else:
+            c3.config(bg="lightgray")
+    elif symb == 14:
+        if CC4 == 0 and CC3 == 0 and CC5 == 0 and BB3 == 0 and BB4 == 0 and BB5 == 0 and DD3 == 0 and DD4 == 0 and DD5 == 0:
+            b3.config(bg="lightgray")
+            b4.config(bg="lightgray")
+            b5.config(bg="lightgray")
+            c3.config(bg="lightgray")
+            c4.config(bg="lightgray")
+            c5.config(bg="lightgray")
+            d3.config(bg="lightgray")
+            d4.config(bg="lightgray")
+            d5.config(bg="lightgray")
+        elif CC4 == 0 and CC3 == "X" and CC5 == 0 and BB3 == 0 and BB4 == 0 and BB5 == 0 and DD3 == 0 and DD4 == 0 and DD5 == 0:
+            c4.config(bg="lightgray")
+        elif CC4 == 0 and CC3 == 0 and CC5 == "X" and BB3 == 0 and BB4 == 0 and BB5 == 0 and DD3 == 0 and DD4 == 0 and DD5 == 0:
+            c4.config(bg="lightgray")
+        elif CC4 == 0 and CC3 == 0 and CC5 == 0 and BB3 == "X" and BB4 == 0 and BB5 == 0 and DD3 == 0 and DD4 == 0 and DD5 == 0:
+            c4.config(bg="lightgray")
+        elif CC4 == 0 and CC3 == 0 and CC5 == 0 and BB3 == 0 and BB4 == "X" and BB5 == 0 and DD3 == 0 and DD4 == 0 and DD5 == 0:
+            c4.config(bg="lightgray")
+        elif CC4 == 0 and CC3 == 0 and CC5 == 0 and BB3 == 0 and BB4 == 0 and BB5 == "X" and DD3 == 0 and DD4 == 0 and DD5 == 0:
+            c4.config(bg="lightgray")
+        elif CC4 == 0 and CC3 == 0 and CC5 == 0 and BB3 == 0 and BB4 == 0 and BB5 == 0 and DD3 == "X" and DD4 == 0 and DD5 == 0:
+            c4.config(bg="lightgray")
+        elif CC4 == 0 and CC3 == 0 and CC5 == 0 and BB3 == 0 and BB4 == 0 and BB5 == 0 and DD3 == 0 and DD4 == "X" and DD5 == 0:
+            c4.config(bg="lightgray")
+        elif CC4 == 0 and CC3 == 0 and CC5 == 0 and BB3 == 0 and BB4 == 0 and BB5 == 0 and DD3 == 0 and DD4 == 0 and DD5 == "X":
+            c4.config(bg="lightgray")
+        elif CC4 == "X":
             c4.config(bg="red", text="X")
             winsound.Beep(250, 300)
-            print('Game Over')
-    elif symb == 15:
-        if CC5 == 0:
-            c5.config(bg="lightgray")
         else:
+            c4.config(bg="lightgray")
+    elif symb == 15:
+        if CC5 == 0 and CC4 == 0 and BB4 == 0 and BB5 == 0 and DD4 == 0 and DD5 == 0:
+            b4.config(bg="lightgray")
+            b5.config(bg="lightgray")
+            c4.config(bg="lightgray")
+            c5.config(bg="lightgray")
+            d4.config(bg="lightgray")
+            d5.config(bg="lightgray")
+        elif CC5 == 0 and CC4 == "X" and BB4 == 0 and BB5 == 0 and DD4 == 0 and DD5 == 0:
+            c5.config(bg="lightgray")
+        elif CC5 == 0 and CC4 == 0 and BB4 == "X" and BB5 == 0 and DD4 == 0 and DD5 == 0:
+            c5.config(bg="lightgray")
+        elif CC5 == 0 and CC4 == 0 and BB4 == 0 and BB5 == "X" and DD4 == 0 and DD5 == 0:
+            c5.config(bg="lightgray")
+        elif CC5 == 0 and CC4 == 0 and BB4 == 0 and BB5 == 0 and DD4 == "X" and DD5 == 0:
+            c5.config(bg="lightgray")
+        elif CC5 == 0 and CC4 == 0 and BB4 == 0 and BB5 == 0 and DD4 == 0 and DD5 == "X":
+            c5.config(bg="lightgray")
+        elif CC5 == "X":
             c5.config(bg="red", text="X")
             winsound.Beep(250, 300)
-            print('Game Over')
-    elif symb == 16:
-        if DD1 == 0:
-            d1.config(bg="lightgray")
         else:
+            c5.config(bg="lightgray")
+    elif symb == 16:
+        if DD1 == 0 and DD2 == 0 and CC1 == 0 and CC2 == 0 and EE1 == 0 and EE2 == 0:
+            c1.config(bg="lightgray")
+            c2.config(bg="lightgray")
+            d1.config(bg="lightgray")
+            d2.config(bg="lightgray")
+            e1.config(bg="lightgray")
+            e2.config(bg="lightgray")
+        elif DD1 == 0 and DD2 == "X" and CC1 == 0 and CC2 == 0 and EE1 == 0 and EE2 == 0:
+            d1.config(bg="lightgray")
+        elif DD1 == 0 and DD2 == 0 and CC1 == "X" and CC2 == 0 and EE1 == 0 and EE2 == 0:
+            d1.config(bg="lightgray")
+        elif DD1 == 0 and DD2 == 0 and CC1 == 0 and CC2 == "X" and EE1 == 0 and EE2 == 0:
+            d1.config(bg="lightgray")
+        elif DD1 == 0 and DD2 == 0 and CC1 == 0 and CC2 == 0 and EE1 == "X" and EE2 == 0:
+            d1.config(bg="lightgray")
+        elif DD1 == 0 and DD2 == 0 and CC1 == 0 and CC2 == 0 and EE1 == 0 and EE2 == "X":
+            d1.config(bg="lightgray")
+        elif DD1 == "X":
             d1.config(bg="red", text="X")
             winsound.Beep(250, 300)
-    elif symb == 17:
-        if DD2 == 0:
-            d2.config(bg="lightgray")
         else:
+            d1.config(bg="lightgray")
+
+    elif symb == 17:
+        if DD2 == 0 and DD3 == 0 and DD1 == 0 and CC1 == 0 and CC2 == 0 and CC3 == 0 and EE1 == 0 and EE2 == 0 and EE3 == 0:
+            c1.config(bg="lightgray")
+            c2.config(bg="lightgray")
+            c3.config(bg="lightgray")
+            d1.config(bg="lightgray")
+            d2.config(bg="lightgray")
+            d3.config(bg="lightgray")
+            e1.config(bg="lightgray")
+            e2.config(bg="lightgray")
+            e3.config(bg="lightgray")
+        elif DD2 == 0 and DD3 == "X" and DD1 == 0 and CC1 == 0 and CC2 == 0 and CC3 == 0 and EE1 == 0 and EE2 == 0 and EE3 == 0:
+            d2.config(bg="lightgray")
+        elif DD2 == 0 and DD3 == 0 and DD1 == "X" and CC1 == 0 and CC2 == 0 and CC3 == 0 and EE1 == 0 and EE2 == 0 and EE3 == 0:
+            d2.config(bg="lightgray")
+        elif DD2 == 0 and DD3 == 0 and DD1 == 0 and CC1 == "X" and CC2 == 0 and CC3 == 0 and EE1 == 0 and EE2 == 0 and EE3 == 0:
+            d2.config(bg="lightgray")
+        elif DD2 == 0 and DD3 == 0 and DD1 == 0 and CC1 == 0 and CC2 == "X" and CC3 == 0 and EE1 == 0 and EE2 == 0 and EE3 == 0:
+            d2.config(bg="lightgray")
+        elif DD2 == 0 and DD3 == 0 and DD1 == 0 and CC1 == 0 and CC2 == 0 and CC3 == "X" and EE1 == 0 and EE2 == 0 and EE3 == 0:
+            d2.config(bg="lightgray")
+        elif DD2 == 0 and DD3 == 0 and DD1 == 0 and CC1 == 0 and CC2 == 0 and CC3 == 0 and EE1 == "X" and EE2 == 0 and EE3 == 0:
+            d2.config(bg="lightgray")
+        elif DD2 == 0 and DD3 == 0 and DD1 == 0 and CC1 == 0 and CC2 == 0 and CC3 == 0 and EE1 == 0 and EE2 == "X" and EE3 == 0:
+            d2.config(bg="lightgray")
+        elif DD2 == 0 and DD3 == 0 and DD1 == 0 and CC1 == 0 and CC2 == 0 and CC3 == 0 and EE1 == 0 and EE2 == 0 and EE3 == "X":
+            d2.config(bg="lightgray")
+        elif DD2 == "X":
             d2.config(bg="red", text="X")
             winsound.Beep(250, 300)
-    elif symb == 18:
-        if DD3 == 0:
-            d3.config(bg="lightgray")
         else:
+            d2.config(bg="lightgray")
+    elif symb == 18:
+        if DD3 == 0 and DD2 == 0 and DD4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0 and EE2 == 0 and EE3 == 0 and EE4 == 0:
+            c2.config(bg="lightgray")
+            c3.config(bg="lightgray")
+            c4.config(bg="lightgray")
+            d2.config(bg="lightgray")
+            d3.config(bg="lightgray")
+            d4.config(bg="lightgray")
+            e2.config(bg="lightgray")
+            e3.config(bg="lightgray")
+            e4.config(bg="lightgray")
+        elif DD3 == 0 and DD2 == "X" and DD4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0 and EE2 == 0 and EE3 == 0 and EE4 == 0:
+            d3.config(bg="lightgray")
+        elif DD3 == 0 and DD2 == 0 and DD4 == "X" and CC2 == 0 and CC3 == 0 and CC4 == 0 and EE2 == 0 and EE3 == 0 and EE4 == 0:
+            d3.config(bg="lightgray")
+        elif DD3 == 0 and DD2 == 0 and DD4 == 0 and CC2 == "X" and CC3 == 0 and CC4 == 0 and EE2 == 0 and EE3 == 0 and EE4 == 0:
+            d3.config(bg="lightgray")
+        elif DD3 == 0 and DD2 == 0 and DD4 == 0 and CC2 == 0 and CC3 == "X" and CC4 == 0 and EE2 == 0 and EE3 == 0 and EE4 == 0:
+            d3.config(bg="lightgray")
+        elif DD3 == 0 and DD2 == 0 and DD4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == "X" and EE2 == 0 and EE3 == 0 and EE4 == 0:
+            d3.config(bg="lightgray")
+        elif DD3 == 0 and DD2 == 0 and DD4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0 and EE2 == "X" and EE3 == 0 and EE4 == 0:
+            d3.config(bg="lightgray")
+        elif DD3 == 0 and DD2 == 0 and DD4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0 and EE2 == 0 and EE3 == "X" and EE4 == 0:
+            d3.config(bg="lightgray")
+        elif DD3 == 0 and DD2 == 0 and DD4 == 0 and CC2 == 0 and CC3 == 0 and CC4 == 0 and EE2 == 0 and EE3 == 0 and EE4 == "X":
+            d3.config(bg="lightgray")
+        elif DD3 == "X":
             d3.config(bg="red", text="X")
             winsound.Beep(250, 300)
-    elif symb == 19:
-        if DD4 == 0:
-            d4.config(bg="lightgray")
         else:
+            d3.config(bg="lightgray")
+
+    elif symb == 19:
+        if DD4 == 0 and DD3 == 0 and DD5 == 0 and CC3 == 0 and CC4 == 0 and CC5 == 0 and EE3 == 0 and EE4 == 0 and EE5 == 0:
+            c3.config(bg="lightgray")
+            c4.config(bg="lightgray")
+            c5.config(bg="lightgray")
+            d3.config(bg="lightgray")
+            d4.config(bg="lightgray")
+            d5.config(bg="lightgray")
+            e3.config(bg="lightgray")
+            e4.config(bg="lightgray")
+            e5.config(bg="lightgray")
+        elif DD4 == 0 and DD3 == "X" and DD5 == 0 and CC3 == 0 and CC4 == 0 and CC5 == 0 and EE3 == 0 and EE4 == 0 and EE5 == 0:
+            d4.config(bg="lightgray")
+        elif DD4 == 0 and DD3 == 0 and DD5 == "X" and CC3 == 0 and CC4 == 0 and CC5 == 0 and EE3 == 0 and EE4 == 0 and EE5 == 0:
+            d4.config(bg="lightgray")
+        elif DD4 == 0 and DD3 == 0 and DD5 == 0 and CC3 == "X" and CC4 == 0 and CC5 == 0 and EE3 == 0 and EE4 == 0 and EE5 == 0:
+            d4.config(bg="lightgray")
+        elif DD4 == 0 and DD3 == 0 and DD5 == 0 and CC3 == 0 and CC4 == "X" and CC5 == 0 and EE3 == 0 and EE4 == 0 and EE5 == 0:
+            d4.config(bg="lightgray")
+        elif DD4 == 0 and DD3 == 0 and DD5 == 0 and CC3 == 0 and CC4 == 0 and CC5 == "X" and EE3 == 0 and EE4 == 0 and EE5 == 0:
+            d4.config(bg="lightgray")
+        elif DD4 == 0 and DD3 == 0 and DD5 == 0 and CC3 == 0 and CC4 == 0 and CC5 == 0 and EE3 == "X" and EE4 == 0 and EE5 == 0:
+            d4.config(bg="lightgray")
+        elif DD4 == 0 and DD3 == 0 and DD5 == 0 and CC3 == 0 and CC4 == 0 and CC5 == 0 and EE3 == 0 and EE4 == "X" and EE5 == 0:
+            d4.config(bg="lightgray")
+        elif DD4 == 0 and DD3 == 0 and DD5 == 0 and CC3 == 0 and CC4 == 0 and CC5 == 0 and EE3 == 0 and EE4 == 0 and EE5 == "X":
+            d4.config(bg="lightgray")
+        elif DD4 == "X":
             d4.config(bg="red", text="X")
             winsound.Beep(250, 300)
-    elif symb == 20:
-        if DD5 == 0:
-            d5.config(bg="lightgray")
         else:
+            d4.config(bg="lightgray")
+
+    elif symb == 20:
+        if DD5 == 0 and DD4 == 0 and CC4 == 0 and CC5 == 0 and EE4 == 0 and EE5 == 0:
+            c4.config(bg="lightgray")
+            c5.config(bg="lightgray")
+            d4.config(bg="lightgray")
+            d5.config(bg="lightgray")
+            e4.config(bg="lightgray")
+            e5.config(bg="lightgray")
+        elif DD5 == 0 and DD4 == "X" and CC4 == 0 and CC5 == 0 and EE4 == 0 and EE5 == 0:
+            d5.config(bg="lightgray")
+        elif DD5 == 0 and DD4 == 0 and CC4 == "X" and CC5 == 0 and EE4 == 0 and EE5 == 0:
+            d5.config(bg="lightgray")
+        elif DD5 == 0 and DD4 == 0 and CC4 == 0 and CC5 == "X" and EE4 == 0 and EE5 == 0:
+            d5.config(bg="lightgray")
+        elif DD5 == 0 and DD4 == 0 and CC4 == 0 and CC5 == 0 and EE4 == "X" and EE5 == 0:
+            d5.config(bg="lightgray")
+        elif DD5 == 0 and DD4 == 0 and CC4 == 0 and CC5 == 0 and EE4 == 0 and EE5 == "X":
+            d5.config(bg="lightgray")
+        elif DD5 == "X":
             d5.config(bg="red", text="X")
             winsound.Beep(250, 300)
-    elif symb == 21:
-        if EE1 == 0:
-            e1.config(bg="lightgray")
         else:
+            d5.config(bg="lightgray")
+    elif symb == 21:
+        if EE1 == 0 and EE2 == 0 and DD1 == 0 and DD2 == 0:
+            d1.config(bg="lightgray")
+            d2.config(bg="lightgray")
+            e1.config(bg="lightgray")
+            e2.config(bg="lightgray")
+        elif EE1 == 0 and EE2 == "X" and DD1 == 0 and DD2 == 0:
+            e1.config(bg="lightgray")
+        elif EE1 == 0 and EE2 == 0 and DD1 == "X" and DD2 == 0:
+            e1.config(bg="lightgray")
+        elif EE1 == 0 and EE2 == 0 and DD1 == 0 and DD2 == "X":
+            e1.config(bg="lightgray")
+        elif EE1 == "X":
             e1.config(bg="red", text="X")
             winsound.Beep(250, 300)
-    elif symb == 22:
-        if EE2 == 0:
-            e2.config(bg="lightgray")
         else:
+            e1.config(bg="lightgray")
+    elif symb == 22:
+        if EE2 == 0 and EE1 == 0 and EE3 == 0 and DD1 == 0 and DD2 == 0 and DD3 == 0:
+            e1.config(bg="lightgray")
+            e2.config(bg="lightgray")
+            e3.config(bg="lightgray")
+            d1.config(bg="lightgray")
+            d2.config(bg="lightgray")
+            d3.config(bg="lightgray")
+        elif EE2 == 0 and EE1 == "X" and EE3 == 0 and DD1 == 0 and DD2 == 0 and DD3 == 0:
+            e2.config(bg="lightgray")
+        elif EE2 == 0 and EE1 == 0 and EE3 == "X" and DD1 == 0 and DD2 == 0 and DD3 == 0:
+            e2.config(bg="lightgray")
+        elif EE2 == 0 and EE1 == 0 and EE3 == 0 and DD1 == "X" and DD2 == 0 and DD3 == 0:
+            e2.config(bg="lightgray")
+        elif EE2 == 0 and EE1 == 0 and EE3 == 0 and DD1 == 0 and DD2 == "X" and DD3 == 0:
+            e2.config(bg="lightgray")
+        elif EE2 == 0 and EE1 == 0 and EE3 == 0 and DD1 == 0 and DD2 == 0 and DD3 == "X":
+            e2.config(bg="lightgray")
+        elif EE2 == "X":
             e2.config(bg="red", text="X")
             winsound.Beep(250, 300)
-    elif symb == 23:
-        if EE3 == 0:
-            e3.config(bg="lightgray")
         else:
+            e2.config(bg="lightgray")
+
+    elif symb == 23:
+        if EE3 == 0 and EE2 == 0 and EE4 == 0 and DD2 == 0 and DD3 == 0 and DD4 == 0:
+            e2.config(bg="lightgray")
+            e3.config(bg="lightgray")
+            e4.config(bg="lightgray")
+            d2.config(bg="lightgray")
+            d3.config(bg="lightgray")
+            d4.config(bg="lightgray")
+        elif EE3 == 0 and EE2 == "X" and EE4 == 0 and DD2 == 0 and DD3 == 0 and DD4 == 0:
+            e3.config(bg="lightgray")
+        elif EE3 == 0 and EE2 == 0 and EE4 == "X" and DD2 == 0 and DD3 == 0 and DD4 == 0:
+            e3.config(bg="lightgray")
+        elif EE3 == 0 and EE2 == 0 and EE4 == 0 and DD2 == "X" and DD3 == 0 and DD4 == 0:
+            e3.config(bg="lightgray")
+        elif EE3 == 0 and EE2 == 0 and EE4 == 0 and DD2 == 0 and DD3 == "X" and DD4 == 0:
+            e3.config(bg="lightgray")
+        elif EE3 == 0 and EE2 == 0 and EE4 == 0 and DD2 == 0 and DD3 == 0 and DD4 == "X":
+            e3.config(bg="lightgray")
+        elif EE3 == "X":
             e3.config(bg="red", text="X")
             winsound.Beep(250, 300)
-    elif symb == 24:
-        if EE4 == 0:
-            e4.config(bg="lightgray")
         else:
+            e3.config(bg="lightgray")
+    elif symb == 24:
+        if EE4 == 0 and EE3 == 0 and EE5 == 0 and DD3 == 0 and DD4 ==0 and DD5 == 0:
+            d3.config(bg="lightgray")
+            d4.config(bg="lightgray")
+            d5.config(bg="lightgray")
+            e3.config(bg="lightgray")
+            e4.config(bg="lightgray")
+            e5.config(bg="lightgray")
+        elif EE4 == 0 and EE3 == "X" and EE5 == 0 and DD3 == 0 and DD4 == 0 and DD5 == 0:
+            e4.config(bg="lightgray")
+        elif EE4 == 0 and EE3 == 0 and EE5 == "X" and DD3 == 0 and DD4 == 0 and DD5 == 0:
+            e4.config(bg="lightgray")
+        elif EE4 == 0 and EE3 == 0 and EE5 == 0 and DD3 == "X" and DD4 == 0 and DD5 == 0:
+            e4.config(bg="lightgray")
+        elif EE4 == 0 and EE3 == 0 and EE5 == 0 and DD3 == 0 and DD4 == "X" and DD5 == 0:
+            e4.config(bg="lightgray")
+        elif EE4 == 0 and EE3 == 0 and EE5 == 0 and DD3 == 0 and DD4 == 0 and DD5 == "X":
+            e4.config(bg="lightgray")
+        elif EE4 == "X":
             e4.config(bg="red", text="X")
             winsound.Beep(250, 300)
-    elif symb == 25:
-        if EE5 == 0:
-            e5.config(bg="lightgray")
         else:
+            e4.config(bg="lightgray")
+    elif symb == 25:
+        if EE5 == 0 and EE4 == 0 and DD4 == 0 and DD5 == 0:
+            d4.config(bg="lightgray")
+            d5.config(bg="lightgray")
+            e4.config(bg="lightgray")
+            e5.config(bg="lightgray")
+        elif EE5 == 0 and EE4 == "X" and DD4 == 0 and DD5 == 0:
+            e5.config(bg="lightgray")
+        elif EE5 == 0 and EE4 == 0 and DD4 == "X" and DD5 == 0:
+            e5.config(bg="lightgray")
+        elif EE5 == 0 and EE4 == 0 and DD4 == 0 and DD5 == "X":
+            e5.config(bg="lightgray")
+        elif EE5 == "X":
             e5.config(bg="red", text="X")
             winsound.Beep(250, 300)
-
+        else:
+            e5.config(bg="lightgray")
 
 def start():
     root.config(bg="gray")
@@ -413,90 +720,60 @@ def start():
     goodluck4 = random.randint(20, 25)
     global AA1, AA2,AA3,AA4,AA5,BB1,BB2,BB3,BB4,BB5,CC1,CC2,CC3,CC4,CC5,DD1,DD2,DD3,DD4,DD5,EE1,EE2,EE3,EE4,EE5
     AA1,AA2,AA3,AA4,AA5,BB1,BB2,BB3,BB4,BB5,CC1,CC2,CC3,CC4,CC5,DD1,DD2,DD3,DD4,DD5,EE1,EE2,EE3,EE4,EE5 = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-    print(goodluck)
     if goodluck == 1:
-        a1.config(text="X")
         AA1 = "X"
-        print(AA1)
     if goodluck == 2:
-        a2.config(text="X")
         AA2 = "X"
-        print(AA2)
     if goodluck == 3:
-        a3.config(text="X")
         AA3 = "X"
-        print(AA2)
     if goodluck == 4:
-        a4.config(text="X")
         AA4 = "X"
     if goodluck == 5:
-        a5.config(text="X")
         AA5 = "X"
     if goodluck == 6:
-        b1.config(text="X")
         BB1 = "X"
     if goodluck2 == 7:
-        b2.config(text="X")
         BB2 = "X"
     if goodluck2 == 8:
-        b3.config(text="X")
         BB3 = "X"
     if goodluck2 == 9:
-        b4.config(text="X")
         BB4 = "X"
     if goodluck2 == 10:
-        b5.config(text="X")
         BB5 = "X"
     if goodluck2 == 11:
-        c1.config(text="X")
         CC1 = "X"
     if goodluck2 == 12:
-        c2.config(text="X")
         CC2 = "X"
     if goodluck3 == 13:
-        c3.config(text="X")
         CC3 = "X"
     if goodluck3 == 14:
-        c4.config(text="X")
         CC4 = "X"
     if goodluck3 == 15:
-        c5.config(text="X")
         CC5 = "X"
     if goodluck3 == 16:
-        d1.config(text="X")
         DD1 = "X"
     if goodluck3 == 17:
-        d2.config(text="X")
         DD2 = "X"
     if goodluck3 == 18:
-        d3.config(text="X")
         DD3 = "X"
     if goodluck3 == 19:
-        d4.config(text="X")
         DD4 = "X"
     if goodluck4 == 20:
-        d5.config(text="X")
         DD5 = "X"
     if goodluck4 == 21:
-        e1.config(text="X")
         EE1 = "X"
     if goodluck4 == 22:
-        e2.config(text="X")
         EE2 = "X"
     if goodluck4 == 23:
-        e3.config(text="X")
         EE3 = "X"
     if goodluck4 == 24:
-        e4.config(text="X")
         EE4 = "X"
     if goodluck4 == 25:
-        e5.config(text="X")
         EE5 = "X"
-    print(f"goodluck 2 is{goodluck2}")
+
 
 startbt = tk.Button(root, command=start, text="Start")
 startbt.place(x=100, y=100, height=40, width=100)
-
 
 
 root.mainloop()
