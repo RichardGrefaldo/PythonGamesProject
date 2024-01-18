@@ -587,79 +587,55 @@ def start():
     AA1,AA2,AA3,AA4,AA5,BB1,BB2,BB3,BB4,BB5,CC1,CC2,CC3,CC4,CC5,DD1,DD2,DD3,DD4,DD5,EE1,EE2,EE3,EE4,EE5 = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     if goodluck == 1:
         AA1 = "X"
-        a1.config(text="X")
     if goodluck == 2:
         AA2 = "X"
-        a2.config(text="X")
     if goodluck == 3:
         AA3 = "X"
-        a3.config(text="X")
     if goodluck == 4:
         AA4 = "X"
-        a4.config(text="X")
     if goodluck == 5:
         AA5 = "X"
-        a5.config(text="X")
     if goodluck == 6:
         BB1 = "X"
-        b1.config(text="X")
     if goodluck2 == 7:
         BB2 = "X"
-        b2.config(text="X")
     if goodluck2 == 8:
         BB3 = "X"
-        b3.config(text="X")
     if goodluck2 == 9:
         BB4 = "X"
-        b4.config(text="X")
     if goodluck2 == 10:
         BB5 = "X"
-        b5.config(text="X")
     if goodluck2 == 11:
         CC1 = "X"
-        c1.config(text="X")
     if goodluck2 == 12:
         CC2 = "X"
-        c2.config(text="X")
     if goodluck3 == 13:
         CC3 = "X"
-        c3.config(text="X")
     if goodluck3 == 14:
         CC4 = "X"
-        c4.config(text="X")
     if goodluck3 == 15:
         CC5 = "X"
-        c5.config(text="X")
     if goodluck3 == 16:
         DD1 = "X"
-        d1.config(text="X")
     if goodluck3 == 17:
         DD2 = "X"
-        d2.config(text="X")
     if goodluck3 == 18:
         DD3 = "X"
-        d3.config(text="X")
     if goodluck3 == 19:
         DD4 = "X"
-        d4.config(text="X")
     if goodluck4 == 20:
         DD5 = "X"
-        d5.config(text="X")
     if goodluck4 == 21:
         EE1 = "X"
-        e1.config(text="X")
     if goodluck4 == 22:
         EE2 = "X"
-        e2.config(text="X")
     if goodluck4 == 23:
         EE3 = "X"
-        e3.config(text="X")
     if goodluck4 == 24:
         EE4 = "X"
         e4.config(text="X")
     if goodluck4 == 25:
         EE5 = "X"
-        e5.config(text="X")
 
 
 startbt = tk.Button(root, command=start, text="Start")
