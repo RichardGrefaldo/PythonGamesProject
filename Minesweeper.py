@@ -633,7 +633,6 @@ def start():
         EE3 = "X"
     if goodluck4 == 24:
         EE4 = "X"
-        e4.config(text="X")
     if goodluck4 == 25:
         EE5 = "X"
 
