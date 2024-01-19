@@ -21,10 +21,10 @@ message1.place()
 def event():
     global message1
     if score > 20:
-        message1 = tk.Label(root, text="You Win", bg="gray", font=('Arial', 18))
+        message1 = tk.Label(root, text="You Win", bg="white", font=('Arial', 18))
         message1.place(x=300, y=10)
     else:
-        message1 = tk.Label(root, text="Game Over", bg="gray", font=('Arial', 18))
+        message1 = tk.Label(root, text="Game Over", bg="white", font=('Arial', 18))
         message1.place(x=300, y=10)
     a1.config(state="disabled");a2.config(state="disabled");a3.config(state="disabled");a4.config(state="disabled");a5.config(state="disabled")
     b1.config(state="disabled");b2.config(state="disabled");b3.config(state="disabled");b4.config(state="disabled");b5.config(state="disabled")
