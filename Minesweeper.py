@@ -513,7 +513,7 @@ def paint(symb):
         event()
     if score > 20:
         event()
-    scorelabel = tk.Label(root, text=f"Tiles cleared: {score}")
+    scorelabel = tk.Label(root,bg="gray", text=f"Tiles cleared: {score} ")
     scorelabel.place(x=0, y=0)
 def start():
     title.place_forget()
