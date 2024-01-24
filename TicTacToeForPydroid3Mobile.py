@@ -701,14 +701,14 @@ def newgame(): # Start/New game Button function
                         a3.config(bg="gold")
                         b3.config(bg="gold")
                         c3.config(bg="gold")
-                if xcheck == 0:
-                    root.after(1500, complayer)
-            if tiles == [] and ocheck == 0 and xcheck == 0:
-                drawlabel = tk.Label(root, text="     DRAW       ", font=('Arial', 20))
-                drawlabel.place(x=20, y=1250)
-                def draw():
-                    drawlabel.destroy()
-                root.after(2500, draw)
+            if xcheck == 0:
+                root.after(1500, complayer)
+        if tiles == [] and ocheck == 0 and xcheck == 0:
+            drawlabel = tk.Label(root, text="     DRAW       ", font=('Arial', 20))
+            drawlabel.place(x=20, y=1250)
+            def draw():
+                drawlabel.destroy()
+            root.after(2500, draw)
 
     a1 = tk.Button(root, command=lambda: paint(1), text="")
     a1.place(x=150, y=300, height=250, width=250)
