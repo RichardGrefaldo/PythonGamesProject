@@ -21,7 +21,7 @@ wincount.place(x=10, y=5)
 AA1, AA2, AA3, BB1, BB2, BB3, CC1, CC2, CC3 = 0, 0, 0, 0, 0, 0, 0, 0, 0
 def newgame(): # Start/New game Button function
     newgamebt.config(text="Play Again")
-    global xcheck, ocheck, AA1, AA2, AA3, BB1, BB2, BB3, CC1, CC2, CC3, wincounterx, wincountero
+    global xcheck, ocheck, AA1, AA2, AA3, BB1, BB2, BB3, CC1, CC2, CC3, wincounterx, wincountero,counter,turn,winner
     AA1, AA2, AA3, BB1, BB2, BB3, CC1, CC2, CC3 = 0, 0, 0, 0, 0, 0, 0, 0, 0 # Reset value after pressing new game
     wincounterx = wincounterx + xcheck # counter for win
     wincountero = wincountero + ocheck
