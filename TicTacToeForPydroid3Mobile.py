@@ -776,5 +776,5 @@ dropdown2.set("Select Game Mode")  # Set a default value
 dropdown2.bind("<<ComboboxSelected>>", mode)
 selected_mode = dropdown2.get()
 # Place the dropdown on the window
-dropdown2.place(x=100, y=1250, height=30, width=450)
+dropdown2.place(x=100, y=1250, height=140, width=450)
 root.mainloop()
