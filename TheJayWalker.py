@@ -11,7 +11,7 @@ help_menu = Menu(about,tearoff = 0)
 about.add_cascade(label="Info",menu=help_menu)
 help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About","The Jaywalker by Richard Grefaldo\nVersion 20240128"))
 help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Changelog","Version 20240128\n -Added Moving Cars\n -Added Name Registration\nVersion 20240127\n -Added Collision\n -Added Road Median Strip\n  players now need to jump over \n  the added road median strip \n  in order to cross \nVersion 20240126\n - Initial Release UI only"))
-position,car1pos,car2pos = 5,11,13
+position,car1pos,car2pos,car3pos,car4pos,car5pos = 5,11,23,27,41,55
 
 
 def Start():
@@ -76,23 +76,65 @@ def Start():
     Rcollision = {131:130,121:120,111:110,101:100,91:90,81:80,61:60,51:50,41:40,31:30,21:20,11:10}
     Lcollision = {0:1,10:11,20:21,30:31,40:41,50:51,60:61,70:71,80:81,90:91,100:101,110:111,120:121}
     Dcollision = {61:71,62:72,63:73,64:74,65:75,66:76,67:77,68:78,69:79,70:80}
-    carloop = {21:11}
+    carloop = {21:11,31:21,51:41,61:51}
 
     ###MOVING CARS#####
     def car1():
-        global car1pos,car2pos
+        global car1pos,car2pos,car3pos
         car1pos = car1pos + 1
-        car2pos = car2pos + 1
+        car2pos,car3pos = car2pos + 1,car3pos + 1
         print(car1pos)
-        root.after(1000, car1)
+        root.after(800, car1)
         if car1pos in carloop:
             car1pos = carloop[car1pos]
-            print(f"position two:{car1pos}")
+        if car2pos in carloop:
+            car2pos = carloop[car2pos]
+        if car3pos in carloop:
+            car3pos = carloop[car3pos]
         for i, tile in enumerate(tiles):
-            if car1pos == i + 1:
+            if car1pos == i + 1 or car2pos == i + 1 or car3pos == i + 1:
                 tile.config(bg="blue",text=f"Car")
             elif i == position - 1: # this blocks fixed flickering player's color and name  every time cars move
                 tile.config(bg="red", text=f"{playername}")
+            elif car4pos == i + 1 or car5pos == i + 1:
+                tile.config(bg="blue", text=f"Car")
+            elif i <= 9:
+                tile.config(bg="green", text="")
+            elif i == 30:
+                tile.config(bg="white", text="")
+            elif i > 32 and i < 36:
+                tile.config(bg="white", text="")
+            elif i > 37 and i < 40:
+                tile.config(bg="white", text="")
+            elif i > 59 and i < 70:
+                tile.config(bg="chocolate")
+            elif i == 90:
+                tile.config(bg="white", text="")
+            elif i > 92 and i < 96:
+                tile.config(bg="white", text="")
+            elif i > 97 and i < 100:
+                tile.config(bg="white", text="")
+            elif i >= 120:
+                tile.config(bg="green", text="")
+
+            else:
+                tile.config(bg="gray", text="")
+    def car2():
+        global car4pos,car5pos
+        car4pos,car5pos = car4pos + 1,car5pos + 1
+        print(car1pos)
+        root.after(200, car2)
+        if car4pos in carloop:
+            car4pos = carloop[car4pos]
+        if car5pos in carloop:
+            car5pos = carloop[car5pos]
+        for i, tile in enumerate(tiles):
+            if car4pos == i + 1 or car5pos == i + 1:
+                tile.config(bg="blue",text=f"Car")
+            elif i == position - 1: # this blocks fixed flickering player's color and name  every time cars move
+                tile.config(bg="red", text=f"{playername}")
+            elif car1pos == i + 1 or car2pos == i + 1 or car3pos == i + 1:
+                tile.config(bg="blue",text=f"Car")
             elif i <= 9:
                 tile.config(bg="green", text="")
             elif i == 30:
@@ -116,11 +158,8 @@ def Start():
                 tile.config(bg="gray", text="")
 
 
-
     car1()
-
-
-
+    car2()
 
 
 
@@ -153,6 +192,8 @@ def Start():
                 position = Lcollision[position]
             if position == i + 1:
                 tile.config(bg="red",text=f"{playername}")
+            elif i == car1pos-1 or i == car2pos-1 or i == car3pos -1: # fix flickering cars everytime player moves left
+                tile.config(bg="blue", text="Car")
             elif i <= 9:        # This part will retain the color green/Grass
                 tile.config(bg="green",text="")
             elif i == 30:
@@ -184,6 +225,8 @@ def Start():
                 position = Rcollision[position]  # creates invisible barrier on the right sides
             if position == i + 1:
                 tile.config(bg="red",text=f"{playername}")
+            elif i == car1pos-1 or i == car2pos-1 or i == car3pos-1:
+                tile.config(bg="blue", text="Car")
             elif i <= 9:
                 tile.config(bg="green",text="")
             elif i == 30:
@@ -212,6 +255,8 @@ def Start():
         for i, tile in enumerate(tiles):
             if position == i + 1:
                 tile.config(bg="red",text=f"{playername}")
+            elif i == car1pos-1 or i == car2pos-1 or i == car3pos-1:
+                tile.config(bg="blue", text="Car")
             elif i <= 9:
                 tile.config(bg="green",text="")
             elif i == 30:
@@ -245,6 +290,8 @@ def Start():
                 position = position + 10
             if position == i + 1:
                 tile.config(bg="red",text=f"{playername}")
+            elif i == car1pos-1 or i == car2pos-1 or i == car3pos-1:
+                tile.config(bg="blue", text="Car")
             elif i <= 9:
                 tile.config(bg="green",text="")
             elif i == 30:
@@ -278,6 +325,8 @@ def Start():
 
             if position == i + 1:
                 tile.config(bg="red",text=f"{playername}")
+            elif i == car1pos-1 or i == car2pos-1 or i == car3pos-1:
+                tile.config(bg="blue", text="Car")
             elif i <= 9:
                 tile.config(bg="green",text="")
             elif i == 30:
