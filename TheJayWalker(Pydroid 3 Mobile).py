@@ -285,7 +285,7 @@ def Start():
             else:
                 root.quit()
         npcpos = npcpos + 1
-        root.after(1200, npc1)
+        root.after(1400, npc1)
         if npcpos in carloop:
             npcpos = carloop[npcpos]
 
@@ -553,7 +553,7 @@ titlelabel2.place(x=350,y=250)
 namelabel = tk.Label(root,text="Enter your name:",font=('Arial',10))
 namelabel.place(x=290,y=530)
 namefield = ttk.Entry(root,font=('Arial',15))
-namefield.place(x=300, y =600,height=120,width=350)
+namefield.place(x=300, y =600,height=120,width=450)
 npclabel = tk.Label(root,text="Enter npc's name:",font=('Arial',10))
 npclabel.place(x=290,y=730)
 npcfield = ttk.Entry(root,font=('Arial',15))
