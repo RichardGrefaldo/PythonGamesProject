@@ -9,8 +9,9 @@ about = Menu(root)
 root.config(menu=about)
 help_menu = Menu(about,tearoff = 0)
 about.add_cascade(label="Info",menu=help_menu)
-help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About","The Jaywalker by Richard Grefaldo\nVersion 20240128"))
-help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Changelog","Version 20240128\n -Added Moving Cars\n -Added Name Registration\nVersion 20240127\n -Added Collision\n -Added Road Median Strip\n  players now need to jump over \n  the added road median strip \n  in order to cross \nVersion 20240126\n - Initial Release UI only"))
+help_menu.add_command(label="Controls", command=lambda: messagebox.showinfo("Controls","For PC:\n Press W to Move up\n  S to Move down\n  A to Move left \n  D to Move right \n  Space to Jump\n\nFor Mobile:\n Use the on screen buttons"))
+help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About","The Jaywalker by Richard Grefaldo\nVersion 20240129\n\n Dash across busy streets to meet someone \non the other side. Avoid speeding cars\nand obstacles. Reach the opposite sidewalk\n to advance.Can you navigate the urban \njungle safely?"))
+help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Changelog","Version 20240129\n -Added Car,Npc Collision\n -Added Win or Lose Condition\nVersion 20240128\n -Added Moving Cars\n -Added Name Registration\nVersion 20240127\n -Added Collision\n -Added Road Median Strip\n  players now need to jump over \n  the added road median strip \n  in order to cross \nVersion 20240126\n - Initial Release UI only"))
 position,car1pos,car2pos,car3pos,car4pos,car5pos = 5,11,23,27,41,55
 car6pos,car7pos,car8pos,car9pos,car10pos = 78,85,113,118,110
 npcpos = 120
@@ -80,12 +81,21 @@ def Start():
     Dcollision = {61:71,62:72,63:73,64:74,65:75,66:76,67:77,68:78,69:79,70:80}
     carloop = {21:11,31:21,51:41,61:51,70:80,80:90,100:110,110:120}
 
+
     ###MOVING CARS#####
     def car1():
-        global car1pos,car2pos,car3pos
+        global car1pos,car2pos,car3pos,position,npcpos
+        if position == car1pos or position == car2pos or position == car3pos:
+            messagebox.showinfo('Message', 'Game Over')
+            answer = messagebox.askquestion('Message', 'do you want to play again?')
+            if answer == "yes":
+                position = 5
+                npcpos = 121
+            else:
+                root.quit()
+
         car1pos = car1pos + 1
         car2pos,car3pos = car2pos + 1,car3pos + 1
-        print(car1pos)
         root.after(800, car1)
         if car1pos in carloop:
             car1pos = carloop[car1pos]
@@ -124,9 +134,16 @@ def Start():
             else:
                 tile.config(bg="gray", text="")
     def car2():
-        global car4pos,car5pos
+        global car4pos,car5pos,position,npcpos
+        if position == car4pos or position == car5pos:
+            messagebox.showinfo('Message', 'Game Over')
+            answer = messagebox.askquestion('Message', 'do you want to play again?')
+            if answer == "yes":
+                position = 5
+                npcpos = 121
+            else:
+                root.quit()
         car4pos,car5pos = car4pos + 1,car5pos + 1
-        print(car1pos)
         root.after(150, car2)
         if car4pos in carloop:
             car4pos = carloop[car4pos]
@@ -163,14 +180,21 @@ def Start():
             else:
                 tile.config(bg="gray", text="")
     def car3():
-        global car6pos,car7pos
+        global car6pos,car7pos,position,npcpos
+        if position == car6pos or position == car7pos:
+            messagebox.showinfo('Message', 'Game Over')
+            answer = messagebox.askquestion('Message', 'do you want to play again?')
+            if answer == "yes":
+                position = 5
+                npcpos = 121
+            else:
+                root.quit()
         car6pos,car7pos = car6pos - 1 ,car7pos - 1
         root.after(100, car3)
         if car6pos in carloop:
             car6pos = carloop[car6pos]
         if car7pos in carloop:
             car7pos = carloop[car7pos]
-        print(f"{car6pos}car6pos")
         for i, tile in enumerate(tiles):
             if car6pos == i + 1 or car7pos == i + 1:
                 tile.config(bg="blue",text=f"Car")
@@ -202,7 +226,15 @@ def Start():
             else:
                 tile.config(bg="gray", text="")
     def car4():
-        global car8pos,car9pos,car10pos
+        global car8pos,car9pos,car10pos,position,npcpos
+        if position == car8pos or position == car9pos or position == car10pos:
+            messagebox.showinfo('Message', 'Game Over')
+            answer = messagebox.askquestion('Message', 'Do you want to play again?')
+            if answer == "yes":
+                position = 5
+                npcpos = 121
+            else:
+                root.quit()
         car8pos,car9pos,car10pos = car8pos - 1 ,car9pos - 1, car10pos - 1
         root.after(400, car4)
         if car8pos in carloop:
@@ -242,7 +274,16 @@ def Start():
             else:
                 tile.config(bg="gray", text="")
     def npc1():
-        global npcpos
+        global npcpos,position
+        if position == npcpos:
+            messagebox.showinfo('Richard', 'Bat ka nagjaywalk ha?!!\nAlam mo ba na delikado yun?!!\n........\n......\n anyway')
+            answer = messagebox.askquestion('Richard', 'Happy Motmot \nMiss mo na ba ako?')
+            if answer == "yes":
+                answer = messagebox.showinfo('Richard', 'Miss din kita\n Mwaa lab u')
+                position = 5
+                npcpos = 121
+            else:
+                root.quit()
         npcpos = npcpos + 1
         root.after(1200, npc1)
         if npcpos in carloop:
@@ -319,6 +360,8 @@ def Start():
             # fix for flickering cars everytime player moves left
             elif i == car1pos-1 or i == car2pos-1 or i == car3pos -1 or i == car4pos-1 or i == car5pos -1 or car6pos == i + 1 or car7pos == i + 1 or car8pos == i + 1 or car9pos == i + 1 or car10pos == i + 1:
                 tile.config(bg="blue", text="Car")
+            elif i == npcpos - 1:
+                tile.config(bg="yellow", text=f"{npc}")
             elif i <= 9:        # This part will retain the color green/Grass
                 tile.config(bg="green",text="")
             elif i == 30:
@@ -341,7 +384,6 @@ def Start():
             else:
                 tile.config(bg="gray",text="")
 
-        print(f'{position}')
     def right():
         global position
         position = position + 1
@@ -352,6 +394,8 @@ def Start():
                 tile.config(bg="red",text=f"{playername}")
             elif i == car1pos - 1 or i == car2pos - 1 or i == car3pos - 1 or i == car4pos - 1 or i == car5pos - 1 or car6pos == i + 1 or car7pos == i + 1 or car8pos == i + 1 or car9pos == i + 1 or car10pos == i + 1:
                 tile.config(bg="blue", text="Car")
+            elif i == npcpos - 1:
+                tile.config(bg="yellow", text=f"{npc}")
             elif i <= 9:
                 tile.config(bg="green",text="")
             elif i == 30:
@@ -382,6 +426,8 @@ def Start():
                 tile.config(bg="red",text=f"{playername}")
             elif i == car1pos-1 or i == car2pos-1 or i == car3pos-1 or i == car4pos-1 or i == car5pos-1 or car6pos == i + 1 or car7pos == i + 1 or car8pos == i + 1 or car9pos == i + 1 or car10pos == i + 1:
                 tile.config(bg="blue", text="Car")
+            elif i == npcpos - 1:
+                tile.config(bg="yellow", text=f"{npc}")
             elif i <= 9:
                 tile.config(bg="green",text="")
             elif i == 30:
@@ -417,6 +463,8 @@ def Start():
                 tile.config(bg="red",text=f"{playername}")
             elif i == car1pos - 1 or i == car2pos - 1 or i == car3pos - 1 or i == car4pos - 1 or i == car5pos - 1 or car6pos == i + 1 or car7pos == i + 1 or car8pos == i + 1 or car9pos == i + 1 or car10pos == i + 1:
                 tile.config(bg="blue", text="Car")
+            elif i == npcpos - 1:
+                tile.config(bg="yellow", text=f"{npc}")
             elif i <= 9:
                 tile.config(bg="green",text="")
             elif i == 30:
@@ -452,6 +500,8 @@ def Start():
                 tile.config(bg="red",text=f"{playername}")
             elif i == car1pos - 1 or i == car2pos - 1 or i == car3pos - 1 or i == car4pos - 1 or i == car5pos - 1 or car6pos == i + 1 or car7pos == i + 1 or car8pos == i + 1 or car9pos == i + 1 or car10pos == i + 1:
                 tile.config(bg="blue", text="Car")
+            elif i == npcpos - 1:
+                tile.config(bg="yellow", text=f"{npc}")
             elif i <= 9:
                 tile.config(bg="green",text="")
             elif i == 30:
@@ -472,20 +522,6 @@ def Start():
                 tile.config(bg="green",text="")
             else:
                 tile.config(bg="gray",text="")
-
-
-
-
-
-
-
-        print(f'{position}')
-
-
-
-    print(f'{position}')
-
-
 
 
 
