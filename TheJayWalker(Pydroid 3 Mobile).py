@@ -69,7 +69,7 @@ def Start():
         else:
             row = 0
 
-        tile = tk.Button(root,bg="gray",text=i, height=2, width=3)
+        tile = tk.Button(root,bg="gray",text=i, height=1, width=1)
         tile.grid(row=row, column=(i - 1) % 10)
         tiles.append(tile)
 
@@ -559,7 +559,7 @@ npclabel.place(x=290,y=730)
 npcfield = ttk.Entry(root,font=('Arial',15))
 npcfield.place(x=300, y =800,height=120,width=450)
 startbutton = ttk.Button(root,command=Start,text="Play",style='Custom.TButton')
-startbutton.place(x=140,y=310,height=120,width=350)
+startbutton.place(x=350,y=1000,height=120,width=350)
 
 
 
