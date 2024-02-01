@@ -144,7 +144,7 @@ def Start():
             else:
                 root.quit()
         car4pos,car5pos = car4pos + 1,car5pos + 1
-        root.after(150, car2)
+        root.after(200, car2)
         if car4pos in carloop:
             car4pos = carloop[car4pos]
         if car5pos in carloop:
@@ -190,7 +190,7 @@ def Start():
             else:
                 root.quit()
         car6pos,car7pos = car6pos - 1 ,car7pos - 1
-        root.after(100, car3)
+        root.after(200, car3)
         if car6pos in carloop:
             car6pos = carloop[car6pos]
         if car7pos in carloop:
