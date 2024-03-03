@@ -735,5 +735,5 @@ def start():
 
 
 startbutton = tk.Button(root, text="Start", command=start)
-startbutton.place(x=400, y=700, height=60, width=100)
+startbutton.place(x=400, y=700, height=150, width=300)
 root.mainloop()
