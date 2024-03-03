@@ -50,16 +50,16 @@ def start():
     t91, t92, t93, t94, t95, t96, t97, t98, t99 = tiles[90], tiles[91], tiles[92], tiles[93], tiles[94], tiles[95],tiles[96], tiles[97], tiles[98]
     t3.config(text="CAKE")
     t27.config(text="CAKE")
-    t29.config(text="L1")
-    t99.config(text="L1")
-    t38.config(text="L2")
-    t74.config(text="L2")
-    t6.config(text="S1")
-    t20.config(text="S1")
-    t24.config(text="S2")
-    t51.config(text="S2")
-    t68.config(text="S3")
-    t96.config(text="S3")
+    t29.config(text="Motmot")
+    t99.config(text="Motmot")
+    t38.config(text="Ladder2")
+    t74.config(text="Ladder2")
+    t6.config(text="Snake1")
+    t20.config(text="Snake1")
+    t24.config(text="Snake2")
+    t51.config(text="Snake2")
+    t68.config(text="Snake3")
+    t96.config(text="Snake3")
     def win():
         global dicebutton,rollbutton
         for i, tile in enumerate(tiles):
