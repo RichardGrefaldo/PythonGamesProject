@@ -9,8 +9,8 @@ about = Menu(root)
 root.config(menu=about)
 help_menu = Menu(about,tearoff = 0)
 about.add_cascade(label="Info",menu=help_menu)
-help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About","Snake&Ladders by Richard Grefaldo\nVersion 20240122"))
-help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Changelog","Version 20240122\n -Added Animation\n -Dice is now clickable for Reset\nVersion 20240121\n -Added Game Logic\n- Added Two-Player Mode\n -Added dice \nVersion 20240120\n -Initial Release\n -UI only"))
+help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About","Snake&Ladders by Richard Grefaldo\nVersion 20240303"))
+help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Changelog","Version 20240303\n -Bug fix \nVersion 20240122\n -Added Animation\n -Dice is now clickable for Reset\nVersion 20240121\n -Added Game Logic\n- Added Two-Player Mode\n -Added dice \nVersion 20240120\n -Initial Release\n -UI only"))
 label1 = tk.Label(root,text="Snake and Ladders",font=('Arial',20))
 label1.place(x=80,y=50)
 label2 = tk.Label(root, text="by Richard",font=('Arial',15))
@@ -659,15 +659,16 @@ def start():
             global position,position2, p1range,dice,player,distance,fpos1,fpos2
             fpos1 = position + dice
             fpos2 = position2 + dice
-
             distance = dice
-
-
             if player == 1:
                 rollbutton.config(bg="blue",text="Blue Turn",state="active")
+                if position > 98:
+                    position = position
+                    win()
                 if fpos1 in ladders:
                     dice = ladders[fpos1]
-                    dice = dice - 1
+                    dice = dice - position
+                    distance = dice
                 elif fpos1 in snake and position in snake:
                     dice = snake[fpos1]
                     dice = dice + 1 - fpos1
@@ -676,14 +677,14 @@ def start():
                 if distance > 0:
                     position = position + 1
                     dice = dice - 1
-                    root.after(100, crawl1)
+                    root.after(200, crawl1)
                     rollbutton.config(state="disabled")
                     if position > 98:
                         win()
                 if distance < 0:
                     position = position - 1
                     dice = dice + 1
-                    root.after(100, crawl1)
+                    root.after(200, crawl1)
                     rollbutton.config(state="disabled")
 
                 for i, tile in enumerate(tiles):
@@ -696,26 +697,27 @@ def start():
 
             else:
                 rollbutton.config(bg="red", text="Red Turn",state="active")
+                if position2 > 98:
+                    position2 = position2
+                    win()
                 if fpos2 in ladders:
                     dice = ladders[fpos2]
                     dice = dice - 1
                 elif fpos2 in snake and position2 in snake:
-                    dice = snake[fpos2]
-                    dice = dice + 1 - fpos2
+                    dice = ladders[fpos2]
+                    dice = dice - position2
                     distance = dice
 
                 if distance > 0:
                     position2 = position2 + 1
                     dice = dice - 1
-                    root.after(100, crawl1)
+                    root.after(200, crawl1)
                     rollbutton.config(state="disabled")
-                    if position2 > 98:
-                        win()
 
                 elif distance < 0:
                     position2 = position2 - 1
                     dice = dice + 1
-                    root.after(100, crawl1)
+                    root.after(200, crawl1)
                     rollbutton.config(state="disabled")
 
                 for i, tile in enumerate(tiles):
