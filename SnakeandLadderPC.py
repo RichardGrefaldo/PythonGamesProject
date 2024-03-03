@@ -16,8 +16,9 @@ label1.place(x=110,y=50)
 label2 = tk.Label(root, text="by Richard",font=('Arial',15))
 label2.place(x=170,y=90)
 position, position2, counter , p1range,p2range = 1, 1, 0,0,0
-ladders = {3:27,38:74,29:98}
-snake = {20:6,96:68,51:24}
+ladders = {3: 27, 38: 74, 29: 99}
+snake = {20: 6, 96: 68, 51: 24}
+
 def start():
     global position, position2,distance,dice
     position = 1 + position - position
@@ -68,7 +69,7 @@ def start():
                 col = 9 - (i - 1) % 10
             else:
                 col = (i - 1) % 10
-            tile.config(text="",bg="white")
+            tile.config(text="")
         ###### Animation Starts here#######
         def duck1():
             for tile in [t94, t95]:
@@ -598,10 +599,6 @@ def start():
             for tile in [t75,t39,t34,t70,t57,t52,t79,t66,t61,t48,t43,t30,t22,t23,t24]:
                 tile.config(bg="pink")
 
-
-
-
-
         root.after(1000,duck1);root.after(1500,duck2);root.after(2000,duck3);root.after(2500,duck4)
         root.after(3000,duck5);root.after(3500,duck6);root.after(4000, duck7);root.after(4500,duck8)
         root.after(5000,duck9); root.after(5500,duck10);root.after(6000,duck11)
@@ -659,74 +656,65 @@ def start():
             global position,position2, p1range,dice,player,distance,fpos1,fpos2
             fpos1 = position + dice
             fpos2 = position2 + dice
-
             distance = dice
-
-
             if player == 1:
                 rollbutton.config(bg="blue",text="Blue Turn",state="active")
+                if position > 98:
+                    position = position
+                    win()
                 if fpos1 in ladders:
                     dice = ladders[fpos1]
-                    dice = dice - 1
+                    dice = dice - position
+                    distance = dice
                 elif fpos1 in snake and position in snake:
                     dice = snake[fpos1]
-                    dice = dice + 1 - fpos1
+                    dice = dice - fpos1
                     distance = dice
-
                 if distance > 0:
                     position = position + 1
                     dice = dice - 1
-                    root.after(100, crawl1)
+                    root.after(200, crawl1)
                     rollbutton.config(state="disabled")
-                    if position > 98:
-                        win()
                 if distance < 0:
                     position = position - 1
                     dice = dice + 1
-                    root.after(100, crawl1)
+                    root.after(200, crawl1)
                     rollbutton.config(state="disabled")
-
-                for i, tile in enumerate(tiles):
-                    if position == i + 1:
-                        tile.config(bg="red")
-                    elif position2 == i + 1:
-                        tile.config(bg="blue")
-                    else:
-                        tile.config(bg="white")
 
             else:
                 rollbutton.config(bg="red", text="Red Turn",state="active")
+                if position2 > 98:
+                    position2 = position2
+                    win()
                 if fpos2 in ladders:
                     dice = ladders[fpos2]
-                    dice = dice - 1
+                    dice = dice - position2
+                    distance = dice
                 elif fpos2 in snake and position2 in snake:
                     dice = snake[fpos2]
-                    dice = dice + 1 - fpos2
+                    dice = dice - fpos2
                     distance = dice
-
                 if distance > 0:
                     position2 = position2 + 1
                     dice = dice - 1
-                    root.after(100, crawl1)
+                    root.after(200, crawl1)
                     rollbutton.config(state="disabled")
-                    if position2 > 98:
-                        win()
-
                 elif distance < 0:
                     position2 = position2 - 1
                     dice = dice + 1
-                    root.after(100, crawl1)
+                    root.after(200, crawl1)
                     rollbutton.config(state="disabled")
 
-                for i, tile in enumerate(tiles):
-                    if position2 == i + 1:
-                        tile.config(bg="blue")
-                    elif position == i + 1:
-                        tile.config(bg="red")
-                    else:
-                        tile.config(bg="white")
-
                 distance = dice
+
+
+            for i, tile in enumerate(tiles):
+                if position2 == i + 1:
+                    tile.config(bg="blue")
+                elif position == i + 1:
+                    tile.config(bg="red")
+                else:
+                    tile.config(bg="white")
 
         crawl1()
 
