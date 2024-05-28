@@ -11,7 +11,6 @@ about.add_cascade(label="Info",menu=help_menu)
 help_menu.add_command(label="About", command=lambda: messagebox.showinfo("About","BebeTime by Richard Grefaldo\nVersion 20240528"))
 help_menu.add_command(label="Changelog", command=lambda: messagebox.showinfo("Changelog","Version 20240528"))
 
-
 wcounter = 1
 rcounter = 1
 setcounter = 1
@@ -140,10 +139,6 @@ def start():
             prepcount.place_forget()
             endlabel = tk.Label(root,text='TAPOS NA BEYBEE',font=('Arial',20))
             endlabel.place(x=30,y=100)
-
-
-
-
 
 
 
